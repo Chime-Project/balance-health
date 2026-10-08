@@ -1,0 +1,429 @@
+<!doctype html>
+<!--
+  Balance Health — homepage demo (proposal), v1.
+  Copy: verbatim from the approved chimehealth.com homepage, "Chime Health"/"Chime" → "Balance Health".
+
+  FLAGS (stand-ins the client must confirm — do not fix silently):
+  1. Hero headline "Find Your Balance / Better Health." is a STAND-IN. The source headline
+     ("Chime In To Better Health") is a pun on the old brand name.
+  2. SMS consent names "Balance Health Group LLC" — confirm the legal entity name.
+  3. Contact email shown as hello@XXXXXXXX.com — domain not confirmed.
+  4. All Start Assessment / Discover CTAs → "#" until the assessment URL is confirmed.
+  5. LegitScript seal → placeholder box until Balance Health's own seal is issued.
+  6. Service jurisdictions list is Chime Health's — confirm for Balance Health.
+  7. "Launching soon / preparing for launch" copy — confirm launch status.
+  8. Footer legal links → "#" until the legal pages are built.
+  9. Cookie banner from the source is omitted: this static demo sets no cookies and runs no analytics.
+  10. Early-access form has no backend: answers stay in sessionStorage; hook = window.balanceSubmitEarlyAccess(payload).
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Balance Health - Telehealth care for weight loss</title>
+  <meta name="description" content="Balance Health is preparing to launch personalized telehealth care for weight loss, lab testing, and wellness support, guided by wellness coaches and licensed providers.">
+  <meta name="theme-color" content="#001948">
+  <link rel="icon" href="favicon.svg?v=1000" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/zalando-sans-expanded-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/lato-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="tokens/colors.css?v=1000">
+  <link rel="stylesheet" href="tokens/type.css?v=1000">
+  <link rel="stylesheet" href="css/fonts.css?v=1000">
+  <link rel="stylesheet" href="css/site.css?v=1000">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Icon sprite -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+      <symbol id="i-coach" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 11h.01M12 11h.01M15.5 11h.01"/></symbol>
+      <symbol id="i-provider" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6a5 5 0 0 0 10 0V3"/><path d="M11 14v2a5 5 0 0 0 10 0v-2"/><circle cx="21" cy="12" r="2"/><path d="M4 3h4M14 3h4"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.6-3.4 8.4-8 9-4.6-.6-8-4.4-8-9V6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></symbol>
+      <symbol id="i-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></symbol>
+      <symbol id="i-scale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M8 9a5.5 5.5 0 0 1 8 0l-2.4 2.4a2.2 2.2 0 0 0-3.2 0z"/></symbol>
+      <symbol id="i-flask" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3"/><path d="M7.5 15h9"/></symbol>
+      <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></symbol>
+      <symbol id="i-clipboard" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M8.5 10l1.5 1.5L13 8.5M8.5 15.5l1.5 1.5 3-3M15 10h1M15 15.5h1"/></symbol>
+      <symbol id="i-team" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.6"/><path d="M15.5 14.2A5 5 0 0 1 21 19"/></symbol>
+      <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7a4.3 4.3 0 0 1 7.5 2.8C19.5 15.4 12 20 12 20z"/><path d="M7.5 12h2.5l1.2-2 1.6 4 1.2-2h2.5"/></symbol>
+    </defs>
+  </svg>
+
+  <div class="topbar">Wellness Coaching • Provider Oversight • Fast Fulfillment</div>
+
+  <header class="site-header" id="top">
+    <div class="container site-header__inner">
+      <a class="site-header__logo" href="#top" aria-label="Balance Health home">
+        <img src="assets/brand/balance-wordmark-navy.svg?v=1000" alt="Balance Health" width="170" height="20">
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#how">How It Works</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="btn btn--primary btn--sm" href="#">Start Assessment</a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- Hero -->
+    <section class="hero on-navy" data-screen-label="hero">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <h1 class="hero__title">Find Your Balance. <span class="accent">Better Health.</span></h1>
+          <span class="label label--pill">Personalized telehealth, launching soon</span>
+          <p class="hero__statement">The first step isn’t medication. <span>It’s understanding what your body needs.</span></p>
+          <p class="hero__lead">Balance Health is preparing to launch personalized telehealth care for weight loss, lab testing, and wellness support, guided by wellness coaches and licensed providers.</p>
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#">Start Assessment <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+          <ul class="trust" aria-label="Why Balance Health">
+            <li><svg aria-hidden="true"><use href="#i-coach"/></svg>Dedicated Wellness Coaches</li>
+            <li><svg aria-hidden="true"><use href="#i-provider"/></svg>Licensed US Providers</li>
+            <li><svg aria-hidden="true"><use href="#i-shield"/></svg>HIPAA Protected</li>
+            <li><svg aria-hidden="true"><use href="#i-truck"/></svg>Next-Day Shipping Available</li>
+          </ul>
+        </div>
+        <div class="hero__visual">
+          <div class="hero__photo">
+            <img src="images/vial-glp1-navy.webp?v=1000" alt="Weight Loss Balance Health GLP-1 vial" width="900" height="1125" fetchpriority="high">
+          </div>
+          <div class="chip chip--a"><span class="chip__icon"><svg aria-hidden="true"><use href="#i-provider"/></svg></span>Licensed US Providers</div>
+          <div class="chip chip--b"><span class="chip__icon"><svg aria-hidden="true"><use href="#i-shield"/></svg></span>HIPAA Protected</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section section--soft" id="services" data-screen-label="services">
+      <div class="container">
+        <h2 class="visually-hidden">Services</h2>
+        <div class="services services--flush">
+          <article class="service-card reveal">
+            <div class="service-card__media">
+              <img src="images/vial-glp1-yellow.webp?v=1000" alt="Weight Loss Balance Health GLP-Squared" width="720" height="900" loading="lazy">
+            </div>
+            <div class="service-card__body">
+              <h3>Weight Loss That Works With You</h3>
+              <span class="label">Weight Loss</span>
+              <p class="service-card__lead">A path designed around your goals, lifestyle, and health.</p>
+              <p class="service-card__more">Takes only a few minutes. No obligation. Just a better understanding of what may be right for you.</p>
+              <div class="service-card__cta"><a class="btn btn--secondary" href="#">Discover Your Wellness Path <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+            </div>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-card__media">
+              <div class="art-nad" role="img" aria-label="NAD+">
+                <span class="art-nad__ring"></span><span class="art-nad__ring"></span><span class="art-nad__ring"></span>
+                <span class="art-nad__word" aria-hidden="true">NAD<sup>+</sup></span>
+              </div>
+            </div>
+            <div class="service-card__body">
+              <h3>Feel More Like Yourself Again</h3>
+              <span class="label">NAD+</span>
+              <p class="service-card__lead">Energy, wellness, and vitality are deeply personal.</p>
+              <p class="service-card__more"><strong>What If Feeling Tired Isn't Normal?</strong>Many people adapt to low energy over time. They tell themselves it's just part of life — but sometimes the answer may be more complex.</p>
+              <div class="service-card__cta"><a class="btn btn--secondary" href="#">Discover Your Wellness Path <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+            </div>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-card__media">
+              <div class="art-labs" role="img" aria-label="labs Total Health Panel — Complete">
+                <div class="panel" aria-hidden="true">
+                  <div class="panel__title">Total Health Panel</div>
+                  <div class="panel__status">Complete</div>
+                  <div class="panel__row"><span class="panel__dot"></span><span class="panel__bar" style="--w:72%"></span><span class="panel__val"></span></div>
+                  <div class="panel__row"><span class="panel__dot"></span><span class="panel__bar" style="--w:48%"></span><span class="panel__val"></span></div>
+                  <div class="panel__row"><span class="panel__dot"></span><span class="panel__bar" style="--w:86%"></span><span class="panel__val"></span></div>
+                  <div class="panel__row"><span class="panel__dot"></span><span class="panel__bar" style="--w:60%"></span><span class="panel__val"></span></div>
+                </div>
+              </div>
+            </div>
+            <div class="service-card__body">
+              <h3>One Insight Can Change Everything</h3>
+              <span class="label">Labs</span>
+              <p class="service-card__lead">Health is connected.</p>
+              <p class="service-card__more">Discover Some Of The Signals Your Body May Be Sending. What your biomarkers may be telling you.</p>
+              <div class="service-card__cta"><a class="btn btn--secondary" href="#">Discover Your Health Path <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why it's different -->
+    <section class="section section--navy on-navy" data-screen-label="why">
+      <div class="container why">
+        <div class="section-head reveal">
+          <h2>A Better Way To Approach Your Health</h2>
+          <span class="label">Why It’s Different</span>
+          <p>Balance Health begins with understanding. Our approach combines wellness support, licensed provider oversight, and convenient coordination of healthcare services to create a more personalized experience.</p>
+        </div>
+        <div class="features">
+          <a class="feature reveal" href="#joinForm">
+            <span class="feature__icon"><svg aria-hidden="true"><use href="#i-coach"/></svg></span>
+            <span><h3>Dedicated Wellness Coaches</h3><p>Support, accountability, and guidance throughout your journey.</p></span>
+          </a>
+          <a class="feature reveal" href="#joinForm">
+            <span class="feature__icon"><svg aria-hidden="true"><use href="#i-provider"/></svg></span>
+            <span><h3>Licensed U.S. Providers</h3><p>Every treatment recommendation is reviewed by a licensed healthcare provider.</p></span>
+          </a>
+          <a class="feature reveal" href="#joinForm">
+            <span class="feature__icon"><svg aria-hidden="true"><use href="#i-truck"/></svg></span>
+            <span><h3>Fast Fulfillment</h3><p>Valid prescriptions, when issued by a licensed healthcare provider, may be fulfilled by a licensed pharmacy partner. Eligible prescriptions may be shipped directly to the patient, with next-day shipping available for many orders.</p></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Personalized care -->
+    <section class="section section--soft" data-screen-label="care">
+      <div class="container care">
+        <div class="section-head reveal">
+          <h2>Personalized Care, Built Around Your Goals</h2>
+          <p>Whether you're looking to lose weight, better understand your health, or improve your overall wellness, Balance Health is being built to provide personalized support every step of the way.</p>
+          <a class="btn btn--primary" href="#">Start Assessment <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="care-list">
+          <div class="care-item reveal">
+            <span class="care-item__icon"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>
+            <div><h3>Weight Loss</h3><p>Provider-guided weight-management care that may include prescription treatment options when clinically appropriate. Treatment recommendations are individualized and determined by a licensed healthcare provider. Compounded medications, when prescribed, are not FDA-approved.</p></div>
+          </div>
+          <div class="care-item reveal">
+            <span class="care-item__icon"><svg aria-hidden="true"><use href="#i-flask"/></svg></span>
+            <div><h3>Lab Testing</h3><p>Health insights designed to help you better understand what is happening beneath the surface.</p></div>
+          </div>
+          <div class="care-item reveal">
+            <span class="care-item__icon"><svg aria-hidden="true"><use href="#i-bolt"/></svg></span>
+            <div><h3>Energy &amp; Wellness</h3><p>NAD+ support options designed around wellness, energy, and long-term health goals.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wellness coaches -->
+    <section class="section" data-screen-label="coaches">
+      <div class="container coach">
+        <div class="coach__copy reveal">
+          <h2 class="coach__title">Guidance Before, During, and After Care</h2>
+          <span class="label">Wellness Coaches</span>
+          <p class="intro">Balance Health is designed to feel more personal than a typical online healthcare experience.</p>
+          <p>Before reaching a provider, members may connect with a wellness coach who helps understand their goals, answer questions, and guide them through the next steps.</p>
+          <p>Licensed providers then review the appropriate information and determine whether treatment is medically appropriate.</p>
+          <ul class="checks">
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Wellness Coach Support</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Provider Review</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Personalized Guidance</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Ongoing Accountability</li>
+          </ul>
+          <p class="note">Wellness coaches are not healthcare providers. They do not diagnose medical conditions, prescribe medications, or replace licensed healthcare providers.</p>
+        </div>
+        <div class="coach__art reveal">
+          <div class="chat" role="img" aria-label="CHAT Wellness Coaches">
+            <div class="chat__card" aria-hidden="true">
+              <div class="chat__head">
+                <span class="chat__avatar"><img src="assets/brand/balance-mark-navy.svg?v=1000" alt=""></span>
+                <span><span class="chat__who">Wellness Coach</span><span class="chat__online">Online</span></span>
+              </div>
+              <div class="bubble"><span></span><span></span></div>
+              <div class="bubble bubble--me"><span></span><span></span></div>
+              <div class="bubble"><span></span><span></span></div>
+              <div class="chat__review"><svg><use href="#i-provider"/></svg>Provider Review</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section section--soft" id="how" data-screen-label="how-it-works">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <h2>How Balance Health Works</h2>
+          <span class="label">Simple &amp; Transparent</span>
+          <p>From first question to ongoing care — a process built to feel like a care team, not a checkout flow.</p>
+        </div>
+        <div class="steps reveal">
+          <div class="steps__tabs" role="tablist" aria-label="How Balance Health Works">
+            <button class="step-tab" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="true"><span class="step-tab__num">1</span>Share Your Goals</button>
+            <button class="step-tab" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1"><span class="step-tab__num">2</span>Meet Your Care Team</button>
+            <button class="step-tab" role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1"><span class="step-tab__num">3</span>Receive Personalized Support</button>
+          </div>
+          <div class="step-panel" role="tabpanel" id="panel-1" aria-labelledby="tab-1">
+            <div><h3>Share Your Goals</h3><p>Tell us about your health goals through a simple assessment.</p></div>
+            <div class="step-panel__art" role="img" aria-label="Share Your Goals"><svg aria-hidden="true"><use href="#i-clipboard"/></svg></div>
+          </div>
+          <div class="step-panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" hidden>
+            <div><h3>Meet Your Care Team</h3><p>Connect with wellness coaches and licensed providers who help guide your next steps.</p></div>
+            <div class="step-panel__art" role="img" aria-label="Meet Your Care Team"><svg aria-hidden="true"><use href="#i-team"/></svg></div>
+          </div>
+          <div class="step-panel" role="tabpanel" id="panel-3" aria-labelledby="tab-3" hidden>
+            <div><h3>Receive Personalized Support</h3><p>Get a care plan built around your goals, with ongoing support every step of the way.</p></div>
+            <div class="step-panel__art" role="img" aria-label="Receive Personalized Support"><svg aria-hidden="true"><use href="#i-heart"/></svg></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq" data-screen-label="faq">
+      <div class="container faq">
+        <div class="faq__intro section-head reveal">
+          <h2>Frequently Asked Questions</h2>
+          <h3>Have questions?</h3>
+          <p>We’re here to help. Below are answers to some of the most common questions about Balance Health and our upcoming services.</p>
+        </div>
+        <div class="faq__list reveal">
+          <details class="faq-item">
+            <summary>How does Balance Health work?</summary>
+            <div class="faq-item__body"><p>Balance Health connects individuals with wellness support and licensed healthcare providers through a convenient online experience. Depending on your needs, you may be asked to complete a health assessment and provide additional information for review by a licensed provider.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Is Balance Health available now?</summary>
+            <div class="faq-item__body"><p>Balance Health is currently preparing for launch. Join our early access list to receive updates, launch announcements, and information about available services.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>What services will Balance Health offer?</summary>
+            <div class="faq-item__body"><p>Balance Health plans to offer personalized support for weight management, lab testing, and wellness-focused programs. Available services may vary by state and provider availability.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>What is a wellness coach?</summary>
+            <div class="faq-item__body"><p>A wellness coach is a member of the Balance Health team who helps support your health journey by providing education, guidance, accountability, and general wellness support. Wellness coaches do not diagnose medical conditions, prescribe medications, or replace licensed healthcare providers.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Who reviews my health information?</summary>
+            <div class="faq-item__body"><p>Health information submitted through Balance Health may be reviewed by licensed healthcare providers who determine whether services or treatments are appropriate based on your individual circumstances and applicable laws and regulations.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Will I automatically receive medication?</summary>
+            <div class="faq-item__body"><p>No. Medication is never guaranteed. Treatment recommendations and prescribing decisions are made solely by a licensed healthcare provider based on an individualized clinical assessment. Not all patients will qualify for prescription treatment.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Do I need insurance?</summary>
+            <div class="faq-item__body"><p>No. Balance Health services are designed to be accessible whether or not you have insurance. Coverage and reimbursement may vary depending on your individual insurance plan</p></div>
+          </details>
+          <details class="faq-item" id="jurisdictions">
+            <summary>What states will Balance Health serve?</summary>
+            <div class="faq-item__body">
+              <h4>Balance Health services are available in the following jurisdictions:</h4>
+              <p>Alabama, Alaska, Arizona, Colorado, Connecticut, Delaware, District of Columbia, Georgia, Hawaii, Idaho, Iowa, Kansas, Louisiana, Maine, Maryland, Massachusetts, Michigan, Minnesota, Missouri, Montana, Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, South Dakota, Texas, Utah, Virginia, Washington, West Virginia, Wisconsin, and Wyoming.</p>
+              <p>Service availability, treatment options, laboratory services, and prescription fulfillment may vary by jurisdiction and are subject to provider licensure, clinical eligibility, applicable laws and regulations, and pharmacy availability.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>How does shipping work?</summary>
+            <div class="faq-item__body"><p>If a licensed healthcare provider determines that treatment is appropriate and a prescription is issued, eligible prescriptions may be fulfilled by a licensed pharmacy partner and shipped directly to the patient. Shipping times may vary based on location, pharmacy processing, and carrier service.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Is next-day shipping available?</summary>
+            <div class="faq-item__body"><p>Next-day shipping may be available for eligible prescriptions in certain locations. Availability depends on provider approval, pharmacy processing times, patient location, and carrier service.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Are compounded medications FDA-approved?</summary>
+            <div class="faq-item__body"><p>No. Compounded medications are not FDA-approved drug products and have not been evaluated by the U.S. Food and Drug Administration (FDA) for safety, effectiveness, or quality. When prescribed, compounded medications are prepared by a licensed compounding pharmacy pursuant to a valid patient-specific prescription and based on the independent clinical judgment of a licensed healthcare provider. Treatment recommendations are individualized, and medication is not guaranteed.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>How are treatment recommendations made?</summary>
+            <div class="faq-item__body"><p>Treatment recommendations are made by licensed healthcare providers based on the patient’s medical history, health information, clinical circumstances, and applicable standards of care. Recommendations are individualized, and treatment may differ from patient to patient.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>When will Balance Health officially launch?</summary>
+            <div class="faq-item__body"><p>We are currently preparing for launch. Join our early access list to receive updates and be among the first to know when services become available.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Why might a healthcare provider prescribe a compounded medication?</summary>
+            <div class="faq-item__body"><p>Treatment decisions are made individually by licensed healthcare providers based on the patient’s medical history, clinical circumstances, treatment needs, and applicable legal and professional requirements. A compounded medication may be considered when the prescribing healthcare provider determines that the individual patient has a specific clinical need for a compounded formulation.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Early access -->
+    <section class="section section--navy on-navy" id="joinForm" data-screen-label="join">
+      <div class="container join">
+        <div class="join__copy reveal">
+          <h2>Your Health Has Been Trying To Get Your Attention.</h2>
+          <span class="label">Maybe this is your sign</span>
+          <p>Join early access and be among the first to experience Balance Health when we launch.</p>
+          <p class="hipaa"><svg aria-hidden="true"><use href="#i-shield"/></svg><span>Your information is protected under HIPAA. We never sell or share your health data.</span></p>
+        </div>
+        <div class="form-card reveal">
+          <form id="earlyAccessForm" novalidate>
+            <h3>Join Early Access</h3>
+            <span class="label">We’re Here To Help</span>
+            <div class="form-grid form-grid--2">
+              <div class="field"><label for="f-first">First Name</label><input id="f-first" name="firstName" autocomplete="given-name" required><p class="field__error">Please enter your first name.</p></div>
+              <div class="field"><label for="f-last">Last Name</label><input id="f-last" name="lastName" autocomplete="family-name" required><p class="field__error">Please enter your last name.</p></div>
+              <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required><p class="field__error">Please enter a valid email.</p></div>
+              <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+            </div>
+            <div class="form-grid">
+              <div class="field"><label for="f-message">Message</label><textarea id="f-message" name="message"></textarea></div>
+              <label class="consent"><input type="checkbox" name="smsNonMarketing"><span>I consent to receive non-marketing text messages from Balance Health Group LLC about responses to support requests, ticket updates, appointment coordination, or follow-up communications related to an existing inquiry. Message frequency may vary. Message &amp; data rates may apply. Text HELP for assistance. Reply STOP to opt out.</span></label>
+              <label class="consent"><input type="checkbox" name="smsMarketing"><span>I consent to receive marketing text messages about special offers, discounts, event promotions, and service announcements from Balance Health Group LLC at the phone number provided. Message frequency may vary. Message &amp; data rates may apply. Text HELP for assistance. Reply STOP to opt out.</span></label>
+              <p class="form-legal">By submitting this form, you acknowledge that you have reviewed our <a href="#">Privacy Policy</a> and <a href="#">Terms &amp; Conditions</a>.</p>
+              <button class="btn btn--primary" type="submit">Join Early Access <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            </div>
+          </form>
+          <div class="form-success" id="earlyAccessSuccess" hidden tabindex="-1">
+            <div class="form-success__icon"><svg aria-hidden="true"><use href="#i-check"/></svg></div>
+            <h3>Thank you!</h3>
+            <p>Your request has been received.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="assets/brand/balance-wordmark-white.svg?v=1000" alt="Balance Health" width="170" height="20" loading="lazy">
+          <h2>Have questions about Balance Health?</h2>
+          <p>Our team is happy to help.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Contact Email</h3>
+          <p><a href="#">hello@XXXXXXXX.com</a></p>
+          <h3 class="footer-col__next">Business Hours</h3>
+          <p>Monday-Friday<br>8:00 AM – 6:00 PM CST</p>
+        </div>
+        <div class="footer-col">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">HIPAA Notice of Privacy Practices</a></li>
+            <li><a href="#">Consumer Health Data Privacy Policy</a></li>
+            <li><a href="#">Telehealth Consent</a></li>
+            <li><a href="#">Shipping Policy</a></li>
+            <li><a href="#">Return &amp; Refund Policy</a></li>
+            <li><a href="#">Terms &amp; Conditions</a></li>
+            <li><a href="#jurisdictions">Service Availability</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <span class="seal-placeholder">LegitScript seal<br>(pending)</span>
+        </div>
+      </div>
+      <div class="footer-legal">
+        <p>Balance Health connects patients with licensed healthcare providers through an online telehealth platform and does not practice medicine or provide medical services directly. Prescription treatments require consultation with, and approval by, a licensed healthcare provider; treatment is not guaranteed. Services are available only in eligible jurisdictions. See <a href="#jurisdictions">Service Availability</a>.</p>
+        <p>Compounded medications are not FDA-approved drug products and have not been evaluated by the FDA for safety, effectiveness, or quality. They are prescribed only following an individualized clinical assessment by a licensed healthcare provider and are prepared and fulfilled by appropriately licensed 503A compounding pharmacies pursuant to a valid prescription.</p>
+        <p>Individual results vary and are not typical or guaranteed. Next-day shipping availability depends on provider approval, pharmacy processing times, patient location, and carrier service.</p>
+        <p>This website is for informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. Not for emergencies—call 911.</p>
+        <p class="footer-copy">© 2026 Balance Health. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/home.js?v=1000" defer></script>
+</body>
+</html>

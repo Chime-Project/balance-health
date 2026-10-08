@@ -1,0 +1,34 @@
+/* Balance Health — type tokens (Brand Book 2026, §07 Typography).
+   Display face: Zalando Sans Expanded SemiBold. Fallback/body: Lato → Arial → Helvetica. */
+:root {
+  --font-display: "Zalando Sans Expanded", "Lato", Arial, Helvetica, sans-serif;
+  --font-body: "Lato", Arial, Helvetica, sans-serif;
+  --weight-display: 600;
+
+  /* Recommended type scale (size / line-height) */
+  --text-display: 48px;  --leading-display: 52px;
+  --text-h1: 36px;       --leading-h1: 40px;
+  --text-h2: 24px;       --leading-h2: 30px;
+  --text-body: 16px;     --leading-body: 24px;
+  --text-caption: 11px;  --leading-caption: 16px;
+
+  /* Spacing + shape */
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px;
+  --space-5: 24px; --space-6: 32px; --space-7: 48px; --space-8: 64px; --space-9: 96px;
+  --radius-sm: 10px; --radius-md: 16px; --radius-lg: 24px; --radius-pill: 999px;
+  --container: 1200px;
+  --gutter: 16px;
+}
+
+@media (min-width: 768px) {
+  :root { --gutter: 32px; }
+}
+
+/* Smaller display sizes on phones keep the expanded face inside 390px */
+@media (max-width: 767px) {
+  :root {
+    --text-display: 32px; --leading-display: 36px;
+    --text-h1: 26px;      --leading-h1: 32px;
+    --text-h2: 20px;      --leading-h2: 26px;
+  }
+}

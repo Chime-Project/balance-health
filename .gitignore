@@ -1,24 +1,21 @@
-# Nestjs specific
-/dist
-/node_modules
-/build
-/tmp
+# Local working files (never served)
+CLAUDE.md
+*-PLAN.md
+NEW-BRAND-PROJECT-RULES.md
 
-# Logs
-logs
-*.log
-npm-debug.log*
-pnpm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log*
+# Client docs, brand sources and reference captures stay untracked (the repo root is public)
+/brand/
+/content/
+/uploads/
+*.zip
+*.docx
+*.pdf
+*.pages
+*.xlsx
+*.ai
+*.mp3
+*.mp4
 
-# dotenv environment variable files
-.env
-.env.development
-.env.test
-.env.production
-
-# temp directory
-.temp
-.tmp
+# Tooling
+node_modules/
+.DS_Store

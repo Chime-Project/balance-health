@@ -1,0 +1,34 @@
+/* Balance Health — color tokens (Brand Book 2026, §06 Color system).
+   Components use these variables only; never hard-code hex in page CSS. */
+:root {
+  /* Brand palette */
+  --bh-signature-navy: #001948;
+  --bh-midnight: #0C1B3A;
+  --bh-royal-blue: #043776;
+  --bh-active-blue: #0849A0;
+  --bh-optimistic-yellow: #FECF01;
+  --bh-cloud: #F3F3F7;
+  --bh-slate: #6E7582;
+  --bh-white: #FFFFFF;
+
+  /* Semantic roles (recommended balance: 55% light · 25% navy · 12% blue · 5% yellow · 3% slate) */
+  --color-bg: var(--bh-white);
+  --color-bg-soft: var(--bh-cloud);
+  --color-bg-strong: var(--bh-signature-navy);
+  --color-bg-deep: var(--bh-midnight);
+  --color-text: var(--bh-signature-navy);
+  --color-text-muted: var(--bh-slate);
+  --color-text-inverse: var(--bh-white);
+  --color-text-inverse-muted: rgba(255, 255, 255, 0.72);
+  --color-accent: var(--bh-optimistic-yellow);
+  --color-link: var(--bh-active-blue);
+  --color-border: #E2E3EA;
+  --color-border-inverse: rgba(255, 255, 255, 0.16);
+  --color-focus: var(--bh-active-blue);
+
+  /* Buttons */
+  --btn-primary-bg: var(--bh-optimistic-yellow);
+  --btn-primary-text: var(--bh-signature-navy);
+  --btn-secondary-bg: var(--bh-signature-navy);
+  --btn-secondary-text: var(--bh-white);
+}

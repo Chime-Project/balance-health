@@ -1,0 +1,22 @@
+/* Self-hosted fonts (latin subset, from Google Fonts). */
+@font-face {
+  font-family: "Zalando Sans Expanded";
+  font-style: normal;
+  font-weight: 600 700;
+  font-display: swap;
+  src: url("../assets/fonts/zalando-sans-expanded-latin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/lato-400-latin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonts/lato-700-latin.woff2") format("woff2");
+}
