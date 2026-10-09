@@ -18,9 +18,10 @@
   10. Early-access form has no backend: answers stay in sessionStorage; hook = window.balanceSubmitEarlyAccess(payload).
   11. Hero background video (member at home, tall + wide cuts) is an AI-generated (Higgsfield) fictional person,
       not a real member — client to approve. The hero's triangle is the "Λ" outline from the wordmark used as a graphic (not in the brand book).
-  12. Design pass after gsk.com (no copy changes): "Personalized Care" items shown as staggered photo cards, and
-      "How It Works" as big-number cards over a cell render. Those photos and the render are AI-generated (Higgsfield):
-      fictional people, not members, coaches or staff — client to approve.
+  12. Design pass after gsk.com (no copy changes): "Why It's Different" features shown as staggered photo cards,
+      "Personalized Care" items as staggered photo cards, and "How It Works" as big-number cards over a cell render.
+      All those photos and the render are AI-generated (Higgsfield): fictional people, not members, coaches, providers
+      or staff — client to approve.
 -->
 <html lang="en">
 <head>
@@ -38,7 +39,7 @@
   <link rel="stylesheet" href="css/fonts.css?v=1000">
   <link rel="preload" href="images/hero-member-wide-poster.webp?v=1003" as="image" media="(min-width: 600px)" fetchpriority="high">
   <link rel="preload" href="images/hero-member-poster.webp?v=1001" as="image" media="(max-width: 599.98px)" fetchpriority="high">
-  <link rel="stylesheet" href="css/site.css?v=1009">
+  <link rel="stylesheet" href="css/site.css?v=1010">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -189,27 +190,52 @@
       </div>
     </section>
 
-    <!-- Why it's different -->
-    <section class="section section--navy on-navy" data-screen-label="why">
-      <div class="container why">
+    <!-- Why it's different: calm centred intro + staggered photo pillar cards (after gsk.com's "card-slides") -->
+    <section class="section section--navy on-navy why" data-screen-label="why">
+      <div class="container">
         <div class="section-head section-head--center reveal">
           <h2>A Better Way To Approach Your Health</h2>
           <span class="label">Why It’s Different</span>
-          <p class="statement">Balance Health begins with understanding. Our approach combines wellness support, licensed provider oversight, and convenient coordination of healthcare services to create a more personalized experience.</p>
+          <p>Balance Health begins with understanding. Our approach combines wellness support, licensed provider oversight, and convenient coordination of healthcare services to create a more personalized experience.</p>
         </div>
-        <div class="features">
-          <a class="feature reveal" href="#joinForm">
-            <span class="feature__icon"><svg aria-hidden="true"><use href="#i-coach"/></svg></span>
-            <span><h3>Dedicated Wellness Coaches</h3><p>Support, accountability, and guidance throughout your journey.</p></span>
-          </a>
-          <a class="feature reveal" href="#joinForm">
-            <span class="feature__icon"><svg aria-hidden="true"><use href="#i-provider"/></svg></span>
-            <span><h3>Licensed U.S. Providers</h3><p>Every treatment recommendation is reviewed by a licensed healthcare provider.</p></span>
-          </a>
-          <a class="feature reveal" href="#joinForm">
-            <span class="feature__icon"><svg aria-hidden="true"><use href="#i-truck"/></svg></span>
-            <span><h3>Fast Fulfillment</h3><p>Valid prescriptions, when issued by a licensed healthcare provider, may be fulfilled by a licensed pharmacy partner. Eligible prescriptions may be shipped directly to the patient, with next-day shipping available for many orders.</p></span>
-          </a>
+      </div>
+      <div class="rail reveal" data-rail>
+        <ul class="rail__track why-track" aria-label="Why It’s Different">
+          <li class="why-card">
+            <a class="why-card__link" href="#joinForm">
+              <span class="why-card__media"><img src="images/why-coach.webp?v=1010" alt="A wellness coach with a headset smiling during a video call at her desk" width="800" height="640" loading="lazy"></span>
+              <span class="why-card__body">
+                <h3>Dedicated Wellness Coaches</h3>
+                <p>Support, accountability, and guidance throughout your journey.</p>
+                <span class="why-card__go" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
+              </span>
+            </a>
+          </li>
+          <li class="why-card">
+            <a class="why-card__link" href="#joinForm">
+              <span class="why-card__media"><img src="images/why-provider.webp?v=1010" alt="A physician with reading glasses reviewing notes at a laptop by a window" width="800" height="640" loading="lazy"></span>
+              <span class="why-card__body">
+                <h3>Licensed U.S. Providers</h3>
+                <p>Every treatment recommendation is reviewed by a licensed healthcare provider.</p>
+                <span class="why-card__go" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
+              </span>
+            </a>
+          </li>
+          <li class="why-card">
+            <a class="why-card__link" href="#joinForm">
+              <span class="why-card__media"><img src="images/why-delivery.webp?v=1010" alt="A hand reaching for a plain delivery box on a doormat at a front door" width="800" height="640" loading="lazy"></span>
+              <span class="why-card__body">
+                <h3>Fast Fulfillment</h3>
+                <p>Valid prescriptions, when issued by a licensed healthcare provider, may be fulfilled by a licensed pharmacy partner. Eligible prescriptions may be shipped directly to the patient, with next-day shipping available for many orders.</p>
+                <span class="why-card__go" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
+              </span>
+            </a>
+          </li>
+        </ul>
+        <div class="rail__controls container">
+          <button class="rail__btn" type="button" data-rail-prev aria-label="Previous"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          <span class="rail__progress" aria-hidden="true"><span class="rail__bar"></span></span>
+          <button class="rail__btn" type="button" data-rail-next aria-label="Next"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
         </div>
       </div>
     </section>

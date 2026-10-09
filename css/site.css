@@ -203,22 +203,28 @@ p { margin: 0; }
 .panel__bar::after { content: ""; position: absolute; inset: 0 auto 0 0; width: var(--w, 60%); border-radius: inherit; background: linear-gradient(90deg, var(--bh-royal-blue), var(--bh-active-blue)); }
 .panel__val { height: 8px; border-radius: 99px; background: #E2E3EA; }
 
-/* ---------- Why it's different: centred statement (gsk.com "Who we are"), features in a row below ---------- */
-.why { display: grid; gap: var(--space-7); }
-.section-head .statement { max-width: 980px; margin-left: auto; margin-right: auto; font-size: 20px; line-height: 30px; }
-.features { display: grid; gap: var(--space-4); }
-.feature { display: grid; grid-template-columns: 48px 1fr; gap: var(--space-4); padding: var(--space-5); border: 1px solid var(--color-border-inverse); border-radius: var(--radius-md); background: rgba(255, 255, 255, .03); color: inherit; text-decoration: none; transition: background-color .2s ease, border-color .2s ease; }
-.feature:hover { background: rgba(255, 255, 255, .07); border-color: rgba(254, 207, 1, .5); }
-.feature__icon { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 14px; background: var(--color-accent); color: var(--bh-signature-navy); }
-.feature__icon svg { width: 24px; height: 24px; }
-.feature h3 { font-size: 18px; line-height: 24px; }
-.feature p { margin-top: 6px; color: var(--color-text-inverse-muted); }
-.on-navy .section-head .statement { color: var(--bh-white); }
-.why .section-head { max-width: 980px; }
+/* ---------- Why it's different: GSK "card-slides" — calm intro, staggered photo cards ---------- */
+.why .section-head p { max-width: 880px; margin-left: auto; margin-right: auto; text-align: left; } /* GSK: centred title, body left-aligned in a narrow column */
+@media (min-width: 768px) { .why .section-head p { text-align: center; } }
+.rail__track.why-track { margin-top: var(--space-7); align-items: flex-start; } /* beats .rail__track { margin: 0 } later in the file */
+.why-card { width: min(80vw, 340px); }
+.why-card:nth-child(odd) { margin-top: var(--space-7); } /* middle card sits higher, as on gsk.com */
+.why-card__link { display: flex; flex-direction: column; border-radius: var(--radius-lg); overflow: hidden; background: rgba(255, 255, 255, .06); color: inherit; text-decoration: none; transition: background-color .25s ease; }
+.why-card__link:hover { background: rgba(255, 255, 255, .11); }
+.why-card__media { display: block; aspect-ratio: 5 / 4; overflow: hidden; background: var(--bh-royal-blue); }
+.why-card__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+.why-card__link:hover .why-card__media img { transform: scale(1.04); }
+.why-card__body { display: flex; flex-direction: column; min-height: 250px; padding: var(--space-5); }
+.why-card h3 { font-size: 20px; line-height: 26px; }
+.why-card p { margin-top: var(--space-3); color: var(--color-text-inverse-muted); }
+/* the gsk.com corner control: outline circle that fills on hover */
+.why-card__go { display: grid; place-items: center; align-self: flex-end; width: 46px; height: 46px; margin-top: auto; border: 1.5px solid rgba(255, 255, 255, .45); border-radius: 50%; color: var(--bh-white); transition: background-color .2s ease, border-color .2s ease, color .2s ease; }
+.why-card__go svg { width: 18px; height: 18px; }
+.why-card__link:hover .why-card__go, .why-card__link:focus-visible .why-card__go { background: var(--color-accent); border-color: var(--color-accent); color: var(--bh-signature-navy); }
 @media (min-width: 1024px) {
-  .section-head .statement { font-size: 28px; line-height: 40px; }
-  .features { grid-template-columns: repeat(3, 1fr); }
-  .feature { grid-template-columns: 1fr; align-content: start; }
+  .why-card { width: calc((min(100cqi, var(--container)) - 2 * var(--gutter) - 2 * var(--space-5)) / 3); }
+  .why-card:nth-child(odd) { margin-top: var(--space-8); }
+  .why-card__body { min-height: 300px; }
 }
 
 /* ---------- Wellness coaches ---------- */
