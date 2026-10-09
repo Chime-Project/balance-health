@@ -19,14 +19,14 @@ Static site on GitHub Pages. Pushing to `main` deploys to
   so fix things in the generator and rerun it rather than editing the pages. Styles: `css/legal.css`.
 - **Logo:** `assets/brand/*.svg`, converted path-for-path from the master `.ai` artwork. Don't retype the
   wordmark.
-- **Cache busting:** every CSS/JS/asset URL carries `?v=N`. N only goes up. Current max: `1003`.
+- **Cache busting:** every CSS/JS/asset URL carries `?v=N`. N only goes up. Current max: `1004`.
 - **Preview:** `python3 -m http.server 8792` from the repo root, then open <http://localhost:8792/>.
 
 ## Pages
 
 | Page | Folder / file | Stack | Notes | `?v=` |
 |---|---|---|---|---|
-| Homepage (demo) | `index.html` | Vanilla | Copy is from the approved homepage with the brand name changed. Hero: background member video through the logo's "Λ", provider photo chip (Higgsfield). `noindex`. Flags below. | 1003 |
+| Homepage (demo) | `index.html` | Vanilla | Copy is from the approved homepage with the brand name changed. Hero: background member video through the logo's "Λ", provider photo chip (Higgsfield). `noindex`. Flags below. | 1004 |
 | Page index | `page-index.html` | Static | Client-facing list of pages. | 1000 |
 | Privacy Policy | `privacy-policy.html` | Static, generated | Verbatim from the live chimehealth.com page, brand swapped. Built by `uploads/legal-ref/build.py`. `noindex`. | 1002 |
 | HIPAA Notice of Privacy Practices | `hipaa-notice.html` | Static, generated | Verbatim from the live chimehealth.com page, brand swapped. Built by `uploads/legal-ref/build.py`. `noindex`. | 1002 |
