@@ -19,7 +19,7 @@ Static site on GitHub Pages. Pushing to `main` deploys to
   so fix things in the generator and rerun it rather than editing the pages. Styles: `css/legal.css`.
 - **Logo:** `assets/brand/*.svg`, converted path-for-path from the master `.ai` artwork. Don't retype the
   wordmark.
-- **Cache busting:** every CSS/JS/asset URL carries `?v=N`. N only goes up. Current max: `1012`.
+- **Cache busting:** every CSS/JS/asset URL carries `?v=N`. N only goes up. Current max: `1013`.
 - **Preview:** `python3 -m http.server 8792` from the repo root, then open <http://localhost:8792/>.
 
 ## Early-access form (backend contract)
@@ -41,15 +41,15 @@ to the API URL. `js/home.js` then sends:
 
 | Page | Folder / file | Stack | Notes | `?v=` |
 |---|---|---|---|---|
-| Homepage (demo) | `index.html` | Vanilla | Copy is from the approved homepage with the brand name changed. Hero: background member video through the logo's "Λ" (Higgsfield). Design pass after gsk.com, copy unchanged: "Why It's Different" as staggered photo cards (gsk.com "card-slides"), "Personalized Care" as staggered photo cards, "How It Works" as big-number cards over a cell render, back-to-top circle. The "Why It's Different" and "Personalized Care" photos are framed by the hero's "Λ" window (per-card SVG mask reusing `#bh-lambda` and `#bh-lambda-fade`; the Λ is placed per photo on its subject). Card rails in `js/home.js`. `noindex`. Flags below. | 1012 |
+| Homepage (demo) | `index.html` | Vanilla | Copy is from the approved homepage with the brand name changed. Hero: background member video through the logo's "Λ" (Higgsfield). Design pass after gsk.com, copy unchanged: "Why It's Different" as staggered photo cards (gsk.com "card-slides"), "Personalized Care" as staggered photo cards, "How It Works" as big-number cards over a cell render, back-to-top circle. Besides the hero, only the "Personalized Care" photos are framed by the "Λ" window (per-card SVG mask reusing `#bh-lambda` and `#bh-lambda-fade`; the Λ is placed per photo on its subject). Card rails in `js/home.js`. `noindex`. Flags below. | 1013 |
 | Page index | `page-index.html` | Static | Client-facing list of pages. | 1000 |
-| Privacy Policy | `privacy-policy.html` | Static, generated | Verbatim from the live chimehealth.com page, brand swapped. Built by `uploads/legal-ref/build.py`. `noindex`. | 1012 |
-| HIPAA Notice of Privacy Practices | `hipaa-notice.html` | Static, generated | Verbatim from the live chimehealth.com page, brand swapped. Built by `uploads/legal-ref/build.py`. `noindex`. | 1012 |
-| Consumer Health Data Privacy Policy | `consumer-health-data-privacy-policy.html` | Static, generated | Verbatim from the live chimehealth.com page, brand swapped. Built by `uploads/legal-ref/build.py`. `noindex`. | 1012 |
-| Telehealth Consent | `telehealth-consent.html` | Static, generated | Verbatim from the live chimehealth.com page, brand swapped. Built by `uploads/legal-ref/build.py`. `noindex`. | 1012 |
-| Shipping Policy | `shipping-policy.html` | Static, generated | Verbatim from the live chimehealth.com page, brand swapped. Built by `uploads/legal-ref/build.py`. `noindex`. | 1012 |
-| Return & Refund Policy | `return-refund-policy.html` | Static, generated | Verbatim from the live chimehealth.com page, brand swapped. Built by `uploads/legal-ref/build.py`. `noindex`. | 1012 |
-| Terms & Conditions | `terms-conditions.html` | Static, generated | Verbatim from the live chimehealth.com page, brand swapped. Built by `uploads/legal-ref/build.py`. `noindex`. | 1012 |
+| Privacy Policy | `privacy-policy.html` | Static, generated | Verbatim from the live chimehealth.com page, brand swapped. Built by `uploads/legal-ref/build.py`. `noindex`. | 1013 |
+| HIPAA Notice of Privacy Practices | `hipaa-notice.html` | Static, generated | Verbatim from the live chimehealth.com page, brand swapped. Built by `uploads/legal-ref/build.py`. `noindex`. | 1013 |
+| Consumer Health Data Privacy Policy | `consumer-health-data-privacy-policy.html` | Static, generated | Verbatim from the live chimehealth.com page, brand swapped. Built by `uploads/legal-ref/build.py`. `noindex`. | 1013 |
+| Telehealth Consent | `telehealth-consent.html` | Static, generated | Verbatim from the live chimehealth.com page, brand swapped. Built by `uploads/legal-ref/build.py`. `noindex`. | 1013 |
+| Shipping Policy | `shipping-policy.html` | Static, generated | Verbatim from the live chimehealth.com page, brand swapped. Built by `uploads/legal-ref/build.py`. `noindex`. | 1013 |
+| Return & Refund Policy | `return-refund-policy.html` | Static, generated | Verbatim from the live chimehealth.com page, brand swapped. Built by `uploads/legal-ref/build.py`. `noindex`. | 1013 |
+| Terms & Conditions | `terms-conditions.html` | Static, generated | Verbatim from the live chimehealth.com page, brand swapped. Built by `uploads/legal-ref/build.py`. `noindex`. | 1013 |
 
 ### Homepage flags (stand-ins for the client to confirm)
 
