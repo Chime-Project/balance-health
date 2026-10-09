@@ -16,9 +16,8 @@
      emails/domain → XXXXXXXX.com — client counsel to sign off for the new brand (uploads/legal-ref/build.py).
   9. Cookie banner from the source is omitted: this static demo sets no cookies and runs no analytics.
   10. Early-access form has no backend: answers stay in sessionStorage; hook = window.balanceSubmitEarlyAccess(payload).
-  11. Hero background video (member at home, tall + wide cuts) and the provider photo in the "Licensed US
-      Providers" chip are AI-generated (Higgsfield) fictional people, not real members or providers — client to
-      approve. The hero's triangle is the "Λ" outline from the wordmark used as a graphic (not in the brand book).
+  11. Hero background video (member at home, tall + wide cuts) is an AI-generated (Higgsfield) fictional person,
+      not a real member — client to approve. The hero's triangle is the "Λ" outline from the wordmark used as a graphic (not in the brand book).
 -->
 <html lang="en">
 <head>
@@ -36,7 +35,7 @@
   <link rel="stylesheet" href="css/fonts.css?v=1000">
   <link rel="preload" href="images/hero-member-wide-poster.webp?v=1003" as="image" media="(min-width: 600px)" fetchpriority="high">
   <link rel="preload" href="images/hero-member-poster.webp?v=1001" as="image" media="(max-width: 599.98px)" fetchpriority="high">
-  <link rel="stylesheet" href="css/site.css?v=1006">
+  <link rel="stylesheet" href="css/site.css?v=1007">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -130,10 +129,6 @@
             <li><svg aria-hidden="true"><use href="#i-shield"/></svg>HIPAA Protected</li>
             <li><svg aria-hidden="true"><use href="#i-truck"/></svg>Next-Day Shipping Available</li>
           </ul>
-            <div class="chip chip--a"><span class="chip__avatar"><img src="images/provider-inset.webp?v=1001" alt="" width="240" height="240"></span>Licensed US Providers</div>
-        </div>
-        <div class="hero__chips">
-          <div class="chip chip--b"><span class="chip__icon"><svg aria-hidden="true"><use href="#i-shield"/></svg></span>HIPAA Protected</div>
         </div>
       </div>
     </section>
