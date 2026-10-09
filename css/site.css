@@ -386,6 +386,12 @@ p { margin: 0; }
   .step-card__num { font-size: 128px; }
 }
 
+/* ---------- The hero's "Λ" window, reused on card photos: navy shade outside the letter, yellow edge fading out ---------- */
+.why-card__media, .story__media { position: relative; }
+.lambda { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.lambda__shade { fill: var(--bh-signature-navy); opacity: .8; }
+.lambda__edge { fill: none; stroke: url(#bh-lambda-fade); stroke-width: 4px; }
+
 /* ---------- Back to top: circle on the footer's top edge (gsk.com) ---------- */
 .site-footer { position: relative; }
 .to-top {
