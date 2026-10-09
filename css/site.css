@@ -129,7 +129,7 @@ p { margin: 0; }
 .chip__icon svg { width: 18px; height: 18px; }
 .chip__avatar { flex: none; width: 40px; height: 40px; border-radius: 50%; overflow: hidden; box-shadow: 0 0 0 2px var(--bh-white), 0 0 0 4px var(--bh-cloud); }
 .chip__avatar img { width: 100%; height: 100%; object-fit: cover; }
-.chip--a { left: var(--gutter); top: calc(100vw * 5 / 4 - 240px); } /* just above the headline */
+.hero__copy .chip--a { position: static; display: inline-flex; margin-top: var(--space-6); } /* in the flow, below the hero content */
 .chip--b { display: none; }
 
 @media (min-width: 768px) {
@@ -149,7 +149,6 @@ p { margin: 0; }
   .hero__art--mid { display: block; }
   .hero--bg .hero__grid { padding-top: calc(clamp(380px, 52vw, 600px) - 130px); }
   .hero--bg .hero__copy { max-width: 720px; }
-  .chip--a { top: calc(clamp(380px, 52vw, 600px) - 220px); }
 }
 /* Desktop (≥1280px): wide cut fills the hero, copy on a navy scrim at left */
 @media (min-width: 1280px) {
@@ -162,7 +161,6 @@ p { margin: 0; }
   .hero__art--wide { display: block; }
   .hero--bg .hero__grid { width: 100%; padding-top: var(--space-9); padding-bottom: var(--space-9); }
   .hero--bg .hero__copy { max-width: 600px; }
-  .chip--a { left: auto; right: max(var(--gutter), calc(50% - 600px)); top: auto; bottom: 9%; }
   .chip--b { display: flex; right: max(var(--gutter), calc(50% - 600px)); top: 18%; }
   .hero__lambda { stroke-width: 10px; }
 }
