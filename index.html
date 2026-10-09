@@ -16,8 +16,9 @@
      emails/domain → XXXXXXXX.com — client counsel to sign off for the new brand (uploads/legal-ref/build.py).
   9. Cookie banner from the source is omitted: this static demo sets no cookies and runs no analytics.
   10. Early-access form has no backend: answers stay in sessionStorage; hook = window.balanceSubmitEarlyAccess(payload).
-  11. Hero video (member at home) and the provider photo in the "Licensed US Providers" chip are
-      AI-generated (Higgsfield) fictional people, not real members or providers — client to approve.
+  11. Hero background video (member at home, tall + wide cuts) and the provider photo in the "Licensed US
+      Providers" chip are AI-generated (Higgsfield) fictional people, not real members or providers — client to
+      approve. The hero's triangle is the "Λ" outline from the wordmark used as a graphic (not in the brand book).
 -->
 <html lang="en">
 <head>
@@ -33,8 +34,9 @@
   <link rel="stylesheet" href="tokens/colors.css?v=1000">
   <link rel="stylesheet" href="tokens/type.css?v=1000">
   <link rel="stylesheet" href="css/fonts.css?v=1000">
-  <link rel="preload" href="images/hero-member-poster.webp?v=1001" as="image" fetchpriority="high">
-  <link rel="stylesheet" href="css/site.css?v=1001">
+  <link rel="preload" href="images/hero-member-wide-poster.webp?v=1003" as="image" media="(min-width: 600px)" fetchpriority="high">
+  <link rel="preload" href="images/hero-member-poster.webp?v=1001" as="image" media="(max-width: 599.98px)" fetchpriority="high">
+  <link rel="stylesheet" href="css/site.css?v=1003">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -77,7 +79,43 @@
   <main id="main">
 
     <!-- Hero -->
-    <section class="hero on-navy" data-screen-label="hero">
+    <section class="hero hero--bg on-navy" data-screen-label="hero">
+      <!-- Background: member video (wide cut from 600px, tall on phones; js/home.js picks one), seen through the wordmark's "Λ" -->
+      <div class="hero__bg" aria-hidden="true">
+        <video class="hero__video" muted loop playsinline preload="none" data-hero-video
+          data-wide="images/hero-member-wide.mp4?v=1003" data-tall="images/hero-member-loop.mp4?v=1001"></video>
+        <svg width="0" height="0" style="position:absolute" focusable="false">
+          <!-- The "Λ" from the wordmark: outer outline of the exact letterform in assets/brand/balance-wordmark-*.svg -->
+          <symbol id="bh-lambda" viewBox="193.59 304.27 100.53 86.74"><path d="M193.59 391.01 L234.84 304.27 L252.87 304.27 L294.12 391.01 Z" vector-effect="non-scaling-stroke"/></symbol>
+          <linearGradient id="bh-lambda-fade" x1="0" y1="0" x2="0" y2="1">
+            <stop class="hero__fade-stop" offset="0"/><stop class="hero__fade-stop" offset=".3"/><stop class="hero__fade-stop" offset=".66" stop-opacity="0"/>
+          </linearGradient>
+        </svg>
+        <svg class="hero__art hero__art--tall" viewBox="0 0 896 1120" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <mask id="bh-window-tall" maskUnits="userSpaceOnUse" x="0" y="0" width="896" height="1120">
+            <rect width="896" height="1120" fill="#fff"/>
+            <use href="#bh-lambda" x="-399" y="30" width="1738" height="1500" fill="#000"/>
+          </mask>
+          <rect class="hero__shade" width="896" height="1120" mask="url(#bh-window-tall)"/>
+          <use href="#bh-lambda" class="hero__lambda" x="-399" y="30" width="1738" height="1500"/>
+        </svg>
+        <svg class="hero__art hero__art--wide" viewBox="0 0 1920 824" preserveAspectRatio="xMinYMid slice" focusable="false">
+          <mask id="bh-window-wide" maskUnits="userSpaceOnUse" x="0" y="0" width="1920" height="824">
+            <rect width="1920" height="824" fill="#fff"/>
+            <use href="#bh-lambda" x="468" y="40" width="1043" height="900" fill="#000"/>
+          </mask>
+          <rect class="hero__shade" width="1920" height="824" mask="url(#bh-window-wide)"/>
+          <use href="#bh-lambda" class="hero__lambda" x="468" y="40" width="1043" height="900"/>
+        </svg>
+        <svg class="hero__art hero__art--mid" viewBox="0 0 1920 824" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <mask id="bh-window-mid" maskUnits="userSpaceOnUse" x="0" y="0" width="1920" height="824">
+            <rect width="1920" height="824" fill="#fff"/>
+            <use href="#bh-lambda" x="468" y="40" width="1043" height="900" fill="#000"/>
+          </mask>
+          <rect class="hero__shade" width="1920" height="824" mask="url(#bh-window-mid)"/>
+          <use href="#bh-lambda" class="hero__lambda" x="468" y="40" width="1043" height="900"/>
+        </svg>
+      </div>
       <div class="container hero__grid">
         <div class="hero__copy">
           <h1 class="hero__title">Find Your Balance. <span class="accent">Better Health.</span></h1>
@@ -94,13 +132,7 @@
             <li><svg aria-hidden="true"><use href="#i-truck"/></svg>Next-Day Shipping Available</li>
           </ul>
         </div>
-        <div class="hero__visual">
-          <div class="hero__photo">
-            <video class="hero__video" muted loop playsinline preload="none" poster="images/hero-member-poster.webp?v=1001" width="896" height="1120" aria-hidden="true" data-hero-video>
-              <source src="images/hero-member-loop.mp4?v=1001" type="video/mp4">
-              <source src="images/hero-member-loop.webm?v=1001" type="video/webm">
-            </video>
-          </div>
+        <div class="hero__chips">
           <div class="chip chip--a"><span class="chip__avatar"><img src="images/provider-inset.webp?v=1001" alt="" width="240" height="240"></span>Licensed US Providers</div>
           <div class="chip chip--b"><span class="chip__icon"><svg aria-hidden="true"><use href="#i-shield"/></svg></span>HIPAA Protected</div>
         </div>
@@ -431,6 +463,6 @@
     </div>
   </footer>
 
-  <script src="js/home.js?v=1001" defer></script>
+  <script src="js/home.js?v=1003" defer></script>
 </body>
 </html>

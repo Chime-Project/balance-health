@@ -23,13 +23,25 @@
     reveals.forEach(function (el) { io.observe(el); });
   }
 
-  /* Hero video — plays muted on loop; reduced motion keeps the poster still (nothing downloads) */
+  /* Hero background video — wide cut from 600px up, tall cut on phones, muted loop. The CSS poster
+     shows until it is actually playing; reduced motion keeps the poster and downloads nothing. */
   var heroVideo = document.querySelector('[data-hero-video]');
   if (heroVideo && !reduceMotion) {
-    heroVideo.preload = 'auto';
-    heroVideo.load(); // WebKit won't fetch a preload="none" video on play() alone
-    var playing = heroVideo.play();
-    if (playing && playing.catch) playing.catch(function () { /* autoplay blocked (e.g. Low Power Mode): poster stays */ });
+    var wideMq = window.matchMedia('(min-width: 600px)');
+    var pickHeroVideo = function () {
+      var src = wideMq.matches ? heroVideo.getAttribute('data-wide') : heroVideo.getAttribute('data-tall');
+      if (heroVideo.getAttribute('src') === src) return;
+      heroVideo.classList.remove('is-playing');
+      heroVideo.src = src;
+      heroVideo.preload = 'auto';
+      heroVideo.load(); // WebKit won't fetch a preload="none" video on play() alone
+      var playing = heroVideo.play();
+      if (playing && playing.catch) playing.catch(function () { /* autoplay blocked (e.g. Low Power Mode): poster stays */ });
+    };
+    heroVideo.addEventListener('playing', function () { heroVideo.classList.add('is-playing'); });
+    pickHeroVideo();
+    if (wideMq.addEventListener) wideMq.addEventListener('change', pickHeroVideo);
+    else if (wideMq.addListener) wideMq.addListener(pickHeroVideo);
   }
 
   /* How it works — accessible tabs (click + arrow keys) */
