@@ -15,6 +15,8 @@
   8. Footer legal links → "#" until the legal pages are built.
   9. Cookie banner from the source is omitted: this static demo sets no cookies and runs no analytics.
   10. Early-access form has no backend: answers stay in sessionStorage; hook = window.balanceSubmitEarlyAccess(payload).
+  11. Hero video (member at home) and the provider photo in the "Licensed US Providers" chip are
+      AI-generated (Higgsfield) fictional people, not real members or providers — client to approve.
 -->
 <html lang="en">
 <head>
@@ -30,7 +32,8 @@
   <link rel="stylesheet" href="tokens/colors.css?v=1000">
   <link rel="stylesheet" href="tokens/type.css?v=1000">
   <link rel="stylesheet" href="css/fonts.css?v=1000">
-  <link rel="stylesheet" href="css/site.css?v=1000">
+  <link rel="preload" href="images/hero-member-poster.webp?v=1001" as="image" fetchpriority="high">
+  <link rel="stylesheet" href="css/site.css?v=1001">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -92,9 +95,12 @@
         </div>
         <div class="hero__visual">
           <div class="hero__photo">
-            <img src="images/vial-glp1-navy.webp?v=1000" alt="Weight Loss Balance Health GLP-1 vial" width="900" height="1125" fetchpriority="high">
+            <video class="hero__video" muted loop playsinline preload="none" poster="images/hero-member-poster.webp?v=1001" width="896" height="1120" aria-hidden="true" data-hero-video>
+              <source src="images/hero-member-loop.mp4?v=1001" type="video/mp4">
+              <source src="images/hero-member-loop.webm?v=1001" type="video/webm">
+            </video>
           </div>
-          <div class="chip chip--a"><span class="chip__icon"><svg aria-hidden="true"><use href="#i-provider"/></svg></span>Licensed US Providers</div>
+          <div class="chip chip--a"><span class="chip__avatar"><img src="images/provider-inset.webp?v=1001" alt="" width="240" height="240"></span>Licensed US Providers</div>
           <div class="chip chip--b"><span class="chip__icon"><svg aria-hidden="true"><use href="#i-shield"/></svg></span>HIPAA Protected</div>
         </div>
       </div>
@@ -424,6 +430,6 @@
     </div>
   </footer>
 
-  <script src="js/home.js?v=1000" defer></script>
+  <script src="js/home.js?v=1001" defer></script>
 </body>
 </html>

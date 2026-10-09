@@ -15,6 +15,8 @@ NEW-BRAND-PROJECT-RULES.md
 *.ai
 *.mp3
 *.mp4
+# ...except web video the site serves
+!/images/*.mp4
 
 # Tooling
 node_modules/

@@ -23,6 +23,15 @@
     reveals.forEach(function (el) { io.observe(el); });
   }
 
+  /* Hero video — plays muted on loop; reduced motion keeps the poster still (nothing downloads) */
+  var heroVideo = document.querySelector('[data-hero-video]');
+  if (heroVideo && !reduceMotion) {
+    heroVideo.preload = 'auto';
+    heroVideo.load(); // WebKit won't fetch a preload="none" video on play() alone
+    var playing = heroVideo.play();
+    if (playing && playing.catch) playing.catch(function () { /* autoplay blocked (e.g. Low Power Mode): poster stays */ });
+  }
+
   /* How it works — accessible tabs (click + arrow keys) */
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.step-tab'));
   function selectTab(tab, focus) {
