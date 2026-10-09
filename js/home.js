@@ -44,27 +44,32 @@
     else if (wideMq.addListener) wideMq.addListener(pickHeroVideo);
   }
 
-  /* How it works — accessible tabs (click + arrow keys) */
-  var tabs = Array.prototype.slice.call(document.querySelectorAll('.step-tab'));
-  function selectTab(tab, focus) {
-    tabs.forEach(function (t) {
-      var on = t === tab;
-      t.setAttribute('aria-selected', on ? 'true' : 'false');
-      t.tabIndex = on ? 0 : -1;
-      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
-    });
-    if (focus) tab.focus();
-  }
-  tabs.forEach(function (tab, i) {
-    tab.addEventListener('click', function () { selectTab(tab, false); });
-    tab.addEventListener('keydown', function (e) {
-      var next = null;
-      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = tabs[(i + 1) % tabs.length];
-      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = tabs[(i - 1 + tabs.length) % tabs.length];
-      if (e.key === 'Home') next = tabs[0];
-      if (e.key === 'End') next = tabs[tabs.length - 1];
-      if (next) { e.preventDefault(); selectTab(next, true); }
-    });
+  /* Rails (stat cards, stories) — native scroll-snap; the arrows step one card and the bar tracks the
+     scroll position. When everything fits (desktop) the rail goes static and the controls hide. */
+  document.querySelectorAll('[data-rail]').forEach(function (rail) {
+    var track = rail.querySelector('.rail__track');
+    var prev = rail.querySelector('[data-rail-prev]');
+    var next = rail.querySelector('[data-rail-next]');
+    function update() {
+      var max = track.scrollWidth - track.clientWidth;
+      rail.classList.toggle('rail--static', max <= 1);
+      var size = track.clientWidth / track.scrollWidth;
+      var pos = max > 0 ? track.scrollLeft / max : 0;
+      rail.style.setProperty('--rail-size', (size * 100) + '%');
+      rail.style.setProperty('--rail-pos', (pos * (1 - size) / size * 100) + '%'); // translateX % is of the bar itself
+      prev.disabled = track.scrollLeft <= 1;
+      next.disabled = track.scrollLeft >= max - 1;
+    }
+    function step(dir) {
+      var item = track.querySelector('li');
+      var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+      track.scrollBy({ left: dir * (item.offsetWidth + gap), behavior: reduceMotion ? 'auto' : 'smooth' });
+    }
+    prev.addEventListener('click', function () { step(-1); });
+    next.addEventListener('click', function () { step(1); });
+    track.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
   });
 
   /* "Service Availability" links open the jurisdictions FAQ */

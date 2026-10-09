@@ -18,6 +18,9 @@
   10. Early-access form has no backend: answers stay in sessionStorage; hook = window.balanceSubmitEarlyAccess(payload).
   11. Hero background video (member at home, tall + wide cuts) is an AI-generated (Higgsfield) fictional person,
       not a real member — client to approve. The hero's triangle is the "Λ" outline from the wordmark used as a graphic (not in the brand book).
+  12. Design pass after gsk.com (no copy changes): "Personalized Care" items shown as staggered photo cards, and
+      "How It Works" as big-number cards over a cell render. Those photos and the render are AI-generated (Higgsfield):
+      fictional people, not members, coaches or staff — client to approve.
 -->
 <html lang="en">
 <head>
@@ -35,7 +38,7 @@
   <link rel="stylesheet" href="css/fonts.css?v=1000">
   <link rel="preload" href="images/hero-member-wide-poster.webp?v=1003" as="image" media="(min-width: 600px)" fetchpriority="high">
   <link rel="preload" href="images/hero-member-poster.webp?v=1001" as="image" media="(max-width: 599.98px)" fetchpriority="high">
-  <link rel="stylesheet" href="css/site.css?v=1007">
+  <link rel="stylesheet" href="css/site.css?v=1009">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -50,12 +53,6 @@
       <symbol id="i-provider" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6a5 5 0 0 0 10 0V3"/><path d="M11 14v2a5 5 0 0 0 10 0v-2"/><circle cx="21" cy="12" r="2"/><path d="M4 3h4M14 3h4"/></symbol>
       <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.6-3.4 8.4-8 9-4.6-.6-8-4.4-8-9V6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></symbol>
       <symbol id="i-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></symbol>
-      <symbol id="i-scale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M8 9a5.5 5.5 0 0 1 8 0l-2.4 2.4a2.2 2.2 0 0 0-3.2 0z"/></symbol>
-      <symbol id="i-flask" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3"/><path d="M7.5 15h9"/></symbol>
-      <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></symbol>
-      <symbol id="i-clipboard" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M8.5 10l1.5 1.5L13 8.5M8.5 15.5l1.5 1.5 3-3M15 10h1M15 15.5h1"/></symbol>
-      <symbol id="i-team" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.6"/><path d="M15.5 14.2A5 5 0 0 1 21 19"/></symbol>
-      <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7a4.3 4.3 0 0 1 7.5 2.8C19.5 15.4 12 20 12 20z"/><path d="M7.5 12h2.5l1.2-2 1.6 4 1.2-2h2.5"/></symbol>
     </defs>
   </svg>
 
@@ -195,10 +192,10 @@
     <!-- Why it's different -->
     <section class="section section--navy on-navy" data-screen-label="why">
       <div class="container why">
-        <div class="section-head reveal">
+        <div class="section-head section-head--center reveal">
           <h2>A Better Way To Approach Your Health</h2>
           <span class="label">Why It’s Different</span>
-          <p>Balance Health begins with understanding. Our approach combines wellness support, licensed provider oversight, and convenient coordination of healthcare services to create a more personalized experience.</p>
+          <p class="statement">Balance Health begins with understanding. Our approach combines wellness support, licensed provider oversight, and convenient coordination of healthcare services to create a more personalized experience.</p>
         </div>
         <div class="features">
           <a class="feature reveal" href="#joinForm">
@@ -217,27 +214,37 @@
       </div>
     </section>
 
-    <!-- Personalized care -->
+    <!-- Personalized care: staggered photo cards (after gsk.com's story strip) -->
     <section class="section section--soft" data-screen-label="care">
-      <div class="container care">
-        <div class="section-head reveal">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
           <h2>Personalized Care, Built Around Your Goals</h2>
           <p>Whether you're looking to lose weight, better understand your health, or improve your overall wellness, Balance Health is being built to provide personalized support every step of the way.</p>
           <a class="btn btn--primary" href="#">Start Assessment <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
-        <div class="care-list">
-          <div class="care-item reveal">
-            <span class="care-item__icon"><svg aria-hidden="true"><use href="#i-scale"/></svg></span>
-            <div><h3>Weight Loss</h3><p>Provider-guided weight-management care that may include prescription treatment options when clinically appropriate. Treatment recommendations are individualized and determined by a licensed healthcare provider. Compounded medications, when prescribed, are not FDA-approved.</p></div>
-          </div>
-          <div class="care-item reveal">
-            <span class="care-item__icon"><svg aria-hidden="true"><use href="#i-flask"/></svg></span>
-            <div><h3>Lab Testing</h3><p>Health insights designed to help you better understand what is happening beneath the surface.</p></div>
-          </div>
-          <div class="care-item reveal">
-            <span class="care-item__icon"><svg aria-hidden="true"><use href="#i-bolt"/></svg></span>
-            <div><h3>Energy &amp; Wellness</h3><p>NAD+ support options designed around wellness, energy, and long-term health goals.</p></div>
-          </div>
+      </div>
+      <div class="rail reveal" data-rail>
+        <ul class="rail__track story-track" aria-label="Personalized care">
+          <li class="story">
+            <span class="story__media"><img src="images/story-walk.webp?v=1009" alt="A smiling man walking along a tree-lined park path at golden hour" width="720" height="960" loading="lazy"></span>
+            <h3 class="story__title">Weight Loss</h3>
+            <p class="story__text">Provider-guided weight-management care that may include prescription treatment options when clinically appropriate. Treatment recommendations are individualized and determined by a licensed healthcare provider. Compounded medications, when prescribed, are not FDA-approved.</p>
+          </li>
+          <li class="story">
+            <span class="story__media"><img src="images/story-labs.webp?v=1009" alt="A lab technician in gloves taking a routine blood sample from a man’s arm" width="720" height="960" loading="lazy"></span>
+            <h3 class="story__title">Lab Testing</h3>
+            <p class="story__text">Health insights designed to help you better understand what is happening beneath the surface.</p>
+          </li>
+          <li class="story">
+            <span class="story__media"><img src="images/story-tired.webp?v=1009" alt="A woman holding a mug of coffee by a kitchen window in the morning" width="720" height="960" loading="lazy"></span>
+            <h3 class="story__title">Energy &amp; Wellness</h3>
+            <p class="story__text">NAD+ support options designed around wellness, energy, and long-term health goals.</p>
+          </li>
+        </ul>
+        <div class="rail__controls container">
+          <button class="rail__btn" type="button" data-rail-prev aria-label="Previous"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          <span class="rail__progress" aria-hidden="true"><span class="rail__bar"></span></span>
+          <button class="rail__btn" type="button" data-rail-next aria-label="Next"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
         </div>
       </div>
     </section>
@@ -276,32 +283,37 @@
       </div>
     </section>
 
-    <!-- How it works -->
-    <section class="section section--soft" id="how" data-screen-label="how-it-works">
+    <!-- How it works: big-number cards over the cell render (after gsk.com) -->
+    <section class="section section--soft how" id="how" data-screen-label="how-it-works">
       <div class="container">
         <div class="section-head section-head--center reveal">
           <h2>How Balance Health Works</h2>
           <span class="label">Simple &amp; Transparent</span>
           <p>From first question to ongoing care — a process built to feel like a care team, not a checkout flow.</p>
         </div>
-        <div class="steps reveal">
-          <div class="steps__tabs" role="tablist" aria-label="How Balance Health Works">
-            <button class="step-tab" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="true"><span class="step-tab__num">1</span>Share Your Goals</button>
-            <button class="step-tab" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1"><span class="step-tab__num">2</span>Meet Your Care Team</button>
-            <button class="step-tab" role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1"><span class="step-tab__num">3</span>Receive Personalized Support</button>
-          </div>
-          <div class="step-panel" role="tabpanel" id="panel-1" aria-labelledby="tab-1">
-            <div><h3>Share Your Goals</h3><p>Tell us about your health goals through a simple assessment.</p></div>
-            <div class="step-panel__art" role="img" aria-label="Share Your Goals"><svg aria-hidden="true"><use href="#i-clipboard"/></svg></div>
-          </div>
-          <div class="step-panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" hidden>
-            <div><h3>Meet Your Care Team</h3><p>Connect with wellness coaches and licensed providers who help guide your next steps.</p></div>
-            <div class="step-panel__art" role="img" aria-label="Meet Your Care Team"><svg aria-hidden="true"><use href="#i-team"/></svg></div>
-          </div>
-          <div class="step-panel" role="tabpanel" id="panel-3" aria-labelledby="tab-3" hidden>
-            <div><h3>Receive Personalized Support</h3><p>Get a care plan built around your goals, with ongoing support every step of the way.</p></div>
-            <div class="step-panel__art" role="img" aria-label="Receive Personalized Support"><svg aria-hidden="true"><use href="#i-heart"/></svg></div>
-          </div>
+      </div>
+      <div class="rail reveal" data-rail>
+        <ol class="rail__track step-track" aria-label="How Balance Health Works">
+          <li class="step-card">
+            <h3>Share Your Goals</h3>
+            <p>Tell us about your health goals through a simple assessment.</p>
+            <span class="step-card__num" aria-hidden="true">1</span>
+          </li>
+          <li class="step-card">
+            <h3>Meet Your Care Team</h3>
+            <p>Connect with wellness coaches and licensed providers who help guide your next steps.</p>
+            <span class="step-card__num" aria-hidden="true">2</span>
+          </li>
+          <li class="step-card">
+            <h3>Receive Personalized Support</h3>
+            <p>Get a care plan built around your goals, with ongoing support every step of the way.</p>
+            <span class="step-card__num" aria-hidden="true">3</span>
+          </li>
+        </ol>
+        <div class="rail__controls container">
+          <button class="rail__btn" type="button" data-rail-prev aria-label="Previous"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          <span class="rail__progress" aria-hidden="true"><span class="rail__bar"></span></span>
+          <button class="rail__btn" type="button" data-rail-next aria-label="Next"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
         </div>
       </div>
     </section>
@@ -417,6 +429,7 @@
   </main>
 
   <footer class="site-footer">
+    <a class="to-top" href="#top" aria-label="Back to top"><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
@@ -457,6 +470,6 @@
     </div>
   </footer>
 
-  <script src="js/home.js?v=1003" defer></script>
+  <script src="js/home.js?v=1009" defer></script>
 </body>
 </html>

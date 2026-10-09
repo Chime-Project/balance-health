@@ -203,8 +203,9 @@ p { margin: 0; }
 .panel__bar::after { content: ""; position: absolute; inset: 0 auto 0 0; width: var(--w, 60%); border-radius: inherit; background: linear-gradient(90deg, var(--bh-royal-blue), var(--bh-active-blue)); }
 .panel__val { height: 8px; border-radius: 99px; background: #E2E3EA; }
 
-/* ---------- Why it's different ---------- */
+/* ---------- Why it's different: centred statement (gsk.com "Who we are"), features in a row below ---------- */
 .why { display: grid; gap: var(--space-7); }
+.section-head .statement { max-width: 980px; margin-left: auto; margin-right: auto; font-size: 20px; line-height: 30px; }
 .features { display: grid; gap: var(--space-4); }
 .feature { display: grid; grid-template-columns: 48px 1fr; gap: var(--space-4); padding: var(--space-5); border: 1px solid var(--color-border-inverse); border-radius: var(--radius-md); background: rgba(255, 255, 255, .03); color: inherit; text-decoration: none; transition: background-color .2s ease, border-color .2s ease; }
 .feature:hover { background: rgba(255, 255, 255, .07); border-color: rgba(254, 207, 1, .5); }
@@ -212,20 +213,12 @@ p { margin: 0; }
 .feature__icon svg { width: 24px; height: 24px; }
 .feature h3 { font-size: 18px; line-height: 24px; }
 .feature p { margin-top: 6px; color: var(--color-text-inverse-muted); }
+.on-navy .section-head .statement { color: var(--bh-white); }
+.why .section-head { max-width: 980px; }
 @media (min-width: 1024px) {
-  .why { grid-template-columns: .9fr 1.1fr; align-items: start; gap: var(--space-8); }
-}
-
-/* ---------- Personalized care ---------- */
-.care { display: grid; gap: var(--space-7); }
-.care-list { display: grid; gap: var(--space-4); }
-.care-item { display: grid; grid-template-columns: 56px 1fr; gap: var(--space-4); padding: var(--space-5); background: var(--bh-white); border-radius: var(--radius-md); border: 1px solid var(--color-border); }
-.care-item__icon { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 16px; background: var(--bh-signature-navy); color: var(--color-accent); }
-.care-item__icon svg { width: 26px; height: 26px; }
-.care-item h3 { font-size: 20px; line-height: 26px; }
-.care-item p { margin-top: 6px; color: var(--color-text-muted); }
-@media (min-width: 1024px) {
-  .care { grid-template-columns: .85fr 1.15fr; align-items: center; gap: var(--space-8); }
+  .section-head .statement { font-size: 28px; line-height: 40px; }
+  .features { grid-template-columns: repeat(3, 1fr); }
+  .feature { grid-template-columns: 1fr; align-content: start; }
 }
 
 /* ---------- Wellness coaches ---------- */
@@ -258,30 +251,6 @@ p { margin: 0; }
 .bubble--me span { background: rgba(255, 255, 255, .45); }
 .chat__review { display: flex; align-items: center; gap: 10px; margin-top: var(--space-4); padding: 10px 12px; border-radius: var(--radius-sm); background: rgba(254, 207, 1, .18); font-weight: 700; font-size: 14px; }
 .chat__review svg { width: 20px; height: 20px; color: var(--bh-signature-navy); }
-
-/* ---------- How it works ---------- */
-.steps { margin-top: var(--space-7); }
-.steps__tabs { display: grid; gap: var(--space-3); }
-.step-tab {
-  display: flex; align-items: center; gap: var(--space-4); width: 100%; text-align: left;
-  padding: var(--space-4) var(--space-5); border: 1px solid var(--color-border); border-radius: var(--radius-md);
-  background: var(--bh-white); color: var(--color-text); cursor: pointer;
-  font-family: var(--font-display); font-weight: var(--weight-display); font-size: 16px; line-height: 22px;
-  transition: background-color .2s ease, border-color .2s ease, color .2s ease;
-}
-.step-tab__num { flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--bh-cloud); font-size: 15px; }
-.step-tab[aria-selected="true"] { background: var(--bh-signature-navy); border-color: var(--bh-signature-navy); color: var(--bh-white); }
-.step-tab[aria-selected="true"] .step-tab__num { background: var(--color-accent); color: var(--bh-signature-navy); }
-.step-panel { margin-top: var(--space-5); display: grid; gap: var(--space-5); align-items: center; padding: var(--space-6) var(--space-5); background: var(--bh-white); border-radius: var(--radius-lg); border: 1px solid var(--color-border); }
-.step-panel[hidden] { display: none; }
-.step-panel h3 { font-size: var(--text-h1); line-height: var(--leading-h1); }
-.step-panel p { margin-top: var(--space-3); color: var(--color-text-muted); font-size: 17px; line-height: 27px; max-width: 460px; }
-.step-panel__art { display: grid; place-items: center; aspect-ratio: 16 / 10; border-radius: var(--radius-md); background: radial-gradient(90% 90% at 70% 20%, var(--bh-active-blue), var(--bh-signature-navy)); color: var(--color-accent); }
-.step-panel__art svg { width: 30%; height: auto; }
-@media (min-width: 900px) {
-  .steps__tabs { grid-template-columns: repeat(3, 1fr); }
-  .step-panel { grid-template-columns: 1fr 1fr; padding: var(--space-7); gap: var(--space-7); }
-}
 
 /* ---------- FAQ ---------- */
 .faq { display: grid; gap: var(--space-7); }
@@ -350,6 +319,78 @@ p { margin: 0; }
 .footer-legal a { text-decoration: underline; }
 .footer-copy { margin-top: var(--space-4); color: rgba(255, 255, 255, .8); }
 @media (min-width: 900px) { .footer-top { grid-template-columns: 1.3fr 1fr 1fr 1.2fr; } }
+
+/* ---------- Rail: horizontal scroll-snap track + arrows + progress (after gsk.com's carousels) ---------- */
+/* The track bleeds to the viewport edge but its first card lines up with the container */
+.rail { container-type: inline-size; --rail-inset: max(var(--gutter), calc((100cqi - var(--container)) / 2 + var(--gutter))); }
+.rail__track {
+  list-style: none; margin: 0; padding: var(--space-2) var(--rail-inset) var(--space-5);
+  display: flex; gap: var(--space-5); overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--rail-inset);
+  scrollbar-width: none; -webkit-overflow-scrolling: touch;
+}
+.rail__track::-webkit-scrollbar { display: none; }
+.rail__track > li { flex: none; scroll-snap-align: start; }
+.rail__controls { display: flex; align-items: center; justify-content: center; gap: var(--space-4); margin-top: var(--space-3); }
+.rail--static .rail__controls { display: none; }
+.rail__btn { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 1.5px solid var(--color-border); border-radius: 50%; background: var(--bh-white); color: var(--bh-signature-navy); cursor: pointer; transition: background-color .2s ease, opacity .2s ease; }
+.rail__btn svg { width: 18px; height: 18px; }
+.rail__btn[data-rail-prev] svg { transform: rotate(180deg); }
+.rail__btn:hover:not(:disabled) { background: var(--color-accent); border-color: var(--color-accent); }
+.rail__btn:disabled { opacity: .35; cursor: default; }
+.rail__progress { position: relative; width: min(320px, 50vw); height: 4px; border-radius: 99px; background: var(--color-border); overflow: hidden; }
+.rail__bar { position: absolute; inset: 0 auto 0 0; width: var(--rail-size, 30%); border-radius: inherit; background: var(--bh-active-blue); transform: translateX(var(--rail-pos, 0%)); }
+.on-navy .rail__btn { background: transparent; border-color: var(--color-border-inverse); color: var(--bh-white); }
+.on-navy .rail__btn:hover:not(:disabled) { color: var(--bh-signature-navy); }
+.on-navy .rail__progress { background: var(--color-border-inverse); }
+.on-navy .rail__bar { background: var(--color-accent); }
+
+/* ---------- Personalized care: staggered photo cards (gsk.com story strip) ---------- */
+.story-track { margin-top: var(--space-7); align-items: flex-start; }
+.story { width: min(78vw, 320px); }
+.story:nth-child(odd) { margin-top: var(--space-7); } /* the gsk.com stagger */
+.story__media { display: block; aspect-ratio: 3 / 4; border-radius: var(--radius-lg); overflow: hidden; background: var(--bh-royal-blue); }
+.story__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+.story:hover .story__media img { transform: scale(1.04); }
+.story__title { margin-top: var(--space-4); font-size: 20px; line-height: 26px; }
+.story__text { margin-top: var(--space-2); color: var(--color-text-muted); }
+@media (min-width: 1024px) {
+  .story { width: calc((min(100cqi, var(--container)) - 2 * var(--gutter) - 2 * var(--space-5)) / 3); }
+  .story:nth-child(odd) { margin-top: var(--space-8); }
+  .story__media { aspect-ratio: 4 / 5; }
+}
+
+/* ---------- How it works: big-number cards over the cell render (gsk.com stat cards) ---------- */
+.how { position: relative; isolation: isolate; overflow: hidden; }
+.how::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: radial-gradient(60% 45% at 50% 18%, var(--bh-cloud) 30%, rgba(243, 243, 247, 0)), url("../images/impact-cells.webp?v=1009") right bottom / cover no-repeat; opacity: .9;
+}
+.step-track { margin-top: var(--space-7); }
+.step-card {
+  display: flex; flex-direction: column; width: min(82vw, 360px); min-height: 300px; padding: var(--space-6) var(--space-5);
+  background: rgba(255, 255, 255, .92); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  border-radius: var(--radius-lg); box-shadow: 0 18px 50px rgba(0, 25, 72, .08);
+}
+.step-card h3 { font-size: var(--text-h2); line-height: var(--leading-h2); }
+.step-card p { margin-top: var(--space-3); color: var(--color-text-muted); font-size: 17px; line-height: 27px; }
+/* the step number sits at the foot of the card: no text above the title */
+.step-card__num { margin-top: auto; padding-top: var(--space-5); font-family: var(--font-display); font-weight: var(--weight-display); font-size: 96px; line-height: .8; letter-spacing: -0.04em; color: var(--bh-active-blue); }
+@media (min-width: 1024px) {
+  .step-card { width: calc((min(100cqi, var(--container)) - 2 * var(--gutter) - 2 * var(--space-5)) / 3); min-height: 340px; }
+  .step-card__num { font-size: 128px; }
+}
+
+/* ---------- Back to top: circle on the footer's top edge (gsk.com) ---------- */
+.site-footer { position: relative; }
+.to-top {
+  position: absolute; top: -32px; right: var(--gutter); display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%;
+  background: var(--color-accent); color: var(--bh-signature-navy); box-shadow: 0 0 0 6px rgba(254, 207, 1, .25), 0 12px 30px rgba(0, 0, 0, .25);
+  transition: transform .2s ease;
+}
+.to-top svg { width: 24px; height: 24px; transform: rotate(-90deg); }
+.to-top:hover { transform: translateY(-3px); }
+.site-footer a.to-top { color: var(--bh-signature-navy); text-decoration: none; }
+.to-top { right: max(var(--gutter), calc(50% - var(--container) / 2 + var(--gutter))); }
 
 /* ---------- Reveal (JS adds .js; reduced motion shows everything) ---------- */
 .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
