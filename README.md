@@ -56,14 +56,15 @@ to the API URL. `js/home.js` then sends:
 1. The hero headline "Find Your Balance. Better Health." is a stand-in. The source headline was a pun on the
    old brand name.
 2. The SMS consent names "Balance Health Group LLC". The legal entity needs confirming.
-3. The contact email is the placeholder `hello@XXXXXXXX.com`.
-4. Every Start Assessment / Discover link points to `#` until the assessment URL is confirmed.
+3. The contact email is `hello@balanceglp.com` (confirmed 9 Oct 2026).
+4. Every Start Assessment / Discover button anchors to the early-access form (`#joinForm`) until the assessment URL is
+   confirmed.
 5. The LegitScript seal is a placeholder.
 6. The service jurisdictions list came over from the source site and needs confirming.
 7. The "Launching soon" copy needs confirming.
 8. The legal pages are copied verbatim from the live chimehealth.com pages with the brand swapped:
-   "Chime Health" → "Balance Health" (including "Balance Health Group LLC"), and the emails and domain →
-   `privacy@ / hello@ / compliance@XXXXXXXX.com`. The client's counsel needs to sign them off for the new brand.
+   "Chime Health" → "Balance Health" (including "Balance Health Group LLC"), `hello@` → `hello@balanceglp.com`,
+   while `privacy@ / compliance@XXXXXXXX.com` and the website domain are still placeholders. The client's counsel needs to sign them off for the new brand.
 9. The cookie banner is left out because the demo sets no cookies and has no analytics.
 10. The early-access form is backend-ready but has no endpoint yet (see "Early-access form" below). Its error line
     "We couldn’t send your request. Please try again." is new UI copy for the client to confirm.
