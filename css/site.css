@@ -36,8 +36,7 @@ p { margin: 0; }
   text-transform: uppercase;
   color: var(--color-text-muted);
 }
-.label--pill { padding: 6px 12px; border-radius: var(--radius-pill); background: var(--color-accent); color: var(--bh-signature-navy); letter-spacing: 0.12em; }
-.on-navy .label:not(.label--pill) { color: var(--color-accent); }
+.on-navy .label { color: var(--color-accent); }
 .on-navy .form-card .label { color: var(--color-text-muted); }
 
 /* ---------- Buttons ---------- */
