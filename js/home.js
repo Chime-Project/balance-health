@@ -83,11 +83,15 @@
   });
   openJurisdictions();
 
-  /* Early-access form — no backend on a static page.
-     Answers stay in sessionStorage; the backend team wires window.balanceSubmitEarlyAccess(payload). */
+  /* Early-access form — backend-ready. On a valid submit it POSTs the answers as JSON to the URL in the
+     form's data-endpoint attribute (contract in README); any 2xx counts as success. With no endpoint set
+     (the static demo) nothing is sent and the thank-you state shows. Nothing is kept in browser storage. */
   var form = document.getElementById('earlyAccessForm');
   var success = document.getElementById('earlyAccessSuccess');
-  var STORAGE_KEY = 'balanceEarlyAccess';
+  var sendError = document.getElementById('earlyAccessError');
+  var submitBtn = form.querySelector('[type="submit"]');
+  var endpoint = (form.getAttribute('data-endpoint') || '').trim();
+  var TIMEOUT_MS = 15000;
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   function setError(input, bad) {
@@ -95,8 +99,33 @@
     input.setAttribute('aria-invalid', bad ? 'true' : 'false');
   }
 
+  function send(payload) {
+    if (!endpoint) return Promise.resolve();
+    var ctrl = typeof AbortController === 'function' ? new AbortController() : null;
+    var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, TIMEOUT_MS) : null;
+    return fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload),
+      credentials: 'omit',
+      signal: ctrl ? ctrl.signal : undefined
+    }).then(function (res) {
+      clearTimeout(timer);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+    }, function (err) {
+      clearTimeout(timer);
+      throw err;
+    });
+  }
+
+  function setBusy(busy) {
+    submitBtn.disabled = busy;
+    if (busy) form.setAttribute('aria-busy', 'true'); else form.removeAttribute('aria-busy');
+  }
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+    if (submitBtn.disabled) return; // a send is already in flight
     var first = form.elements.firstName, last = form.elements.lastName, email = form.elements.email;
     var bad = [];
     [first, last].forEach(function (f) { var b = !f.value.trim(); setError(f, b); if (b) bad.push(f); });
@@ -104,6 +133,7 @@
     if (bad.length) { bad[0].focus(); return; }
 
     var payload = {
+      form: 'early-access',
       firstName: first.value.trim(),
       lastName: last.value.trim(),
       email: email.value.trim(),
@@ -111,13 +141,19 @@
       message: form.elements.message.value.trim(),
       smsNonMarketing: form.elements.smsNonMarketing.checked,
       smsMarketing: form.elements.smsMarketing.checked,
+      page: location.origin + location.pathname, // no query string: it can carry PII
       submittedAt: new Date().toISOString()
     };
-    try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(payload)); } catch (err) { /* private mode: ignore */ }
-    if (typeof window.balanceSubmitEarlyAccess === 'function') window.balanceSubmitEarlyAccess(payload);
 
-    form.hidden = true;
-    success.hidden = false;
-    success.focus();
+    sendError.hidden = true;
+    setBusy(true);
+    send(payload).then(function () {
+      form.hidden = true;
+      success.hidden = false;
+      success.focus();
+    }, function () {
+      setBusy(false);
+      sendError.hidden = false; // role="alert" announces it
+    });
   });
 })();

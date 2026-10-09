@@ -300,6 +300,8 @@ p { margin: 0; }
 .consent { display: grid; grid-template-columns: 22px 1fr; gap: 12px; align-items: start; font-size: 12.5px; line-height: 18px; color: var(--color-text-muted); }
 .consent input { width: 20px; height: 20px; margin: 0; accent-color: var(--bh-signature-navy); }
 .form-legal { font-size: 13px; line-height: 19px; color: var(--color-text-muted); }
+.form-error { color: #C2362B; font-size: 14px; line-height: 20px; font-weight: 700; }
+.form-card .btn:disabled { opacity: .6; cursor: progress; transform: none; }
 .form-card .btn { width: 100%; }
 .form-success { text-align: center; padding: var(--space-6) 0; }
 .form-success__icon { display: grid; place-items: center; width: 64px; height: 64px; margin: 0 auto var(--space-4); border-radius: 50%; background: var(--color-accent); color: var(--bh-signature-navy); }

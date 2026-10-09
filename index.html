@@ -15,7 +15,9 @@
   8. Legal pages (footer) are verbatim chimehealth.com copies, "Chime Health" → "Balance Health" and the
      emails/domain → XXXXXXXX.com — client counsel to sign off for the new brand (uploads/legal-ref/build.py).
   9. Cookie banner from the source is omitted: this static demo sets no cookies and runs no analytics.
-  10. Early-access form has no backend: answers stay in sessionStorage; hook = window.balanceSubmitEarlyAccess(payload).
+  10. Early-access form is backend-ready: js/home.js POSTs the answers as JSON to the form's data-endpoint (empty until the
+      backend URL is confirmed; with no endpoint nothing is sent). The error line "We couldn’t send your request. Please try
+      again." is new UI copy — client to confirm.
   11. Hero background video (member at home, tall + wide cuts) is an AI-generated (Higgsfield) fictional person,
       not a real member — client to approve. The hero's triangle is the "Λ" outline from the wordmark used as a graphic (not in the brand book).
   12. Design pass after gsk.com (no copy changes): "Why It's Different" features shown as staggered photo cards,
@@ -39,7 +41,7 @@
   <link rel="stylesheet" href="css/fonts.css?v=1000">
   <link rel="preload" href="images/hero-member-wide-poster.webp?v=1003" as="image" media="(min-width: 600px)" fetchpriority="high">
   <link rel="preload" href="images/hero-member-poster.webp?v=1001" as="image" media="(max-width: 599.98px)" fetchpriority="high">
-  <link rel="stylesheet" href="css/site.css?v=1011">
+  <link rel="stylesheet" href="css/site.css?v=1012">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -69,7 +71,7 @@
         <a href="#how">How It Works</a>
         <a href="#faq">FAQ</a>
       </nav>
-      <a class="btn btn--primary btn--sm" href="#">Start Assessment</a>
+      <a class="btn btn--primary btn--sm" href="#joinForm">Start Assessment</a>
     </div>
   </header>
 
@@ -119,7 +121,7 @@
           <p class="hero__statement">The first step isn’t medication. <span>It’s understanding what your body needs.</span></p>
           <p class="hero__lead">Balance Health is preparing to launch personalized telehealth care for weight loss, lab testing, and wellness support, guided by wellness coaches and licensed providers.</p>
           <div class="hero__cta">
-            <a class="btn btn--primary" href="#">Start Assessment <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn--primary" href="#joinForm">Start Assessment <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div>
           <ul class="trust" aria-label="Why Balance Health">
             <li><svg aria-hidden="true"><use href="#i-coach"/></svg>Dedicated Wellness Coaches</li>
@@ -145,7 +147,7 @@
               <span class="label">Weight Loss</span>
               <p class="service-card__lead">A path designed around your goals, lifestyle, and health.</p>
               <p class="service-card__more">Takes only a few minutes. No obligation. Just a better understanding of what may be right for you.</p>
-              <div class="service-card__cta"><a class="btn btn--secondary" href="#">Discover Your Wellness Path <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+              <div class="service-card__cta"><a class="btn btn--secondary" href="#joinForm">Discover Your Wellness Path <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
             </div>
           </article>
 
@@ -161,7 +163,7 @@
               <span class="label">NAD+</span>
               <p class="service-card__lead">Energy, wellness, and vitality are deeply personal.</p>
               <p class="service-card__more"><strong>What If Feeling Tired Isn't Normal?</strong>Many people adapt to low energy over time. They tell themselves it's just part of life — but sometimes the answer may be more complex.</p>
-              <div class="service-card__cta"><a class="btn btn--secondary" href="#">Discover Your Wellness Path <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+              <div class="service-card__cta"><a class="btn btn--secondary" href="#joinForm">Discover Your Wellness Path <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
             </div>
           </article>
 
@@ -183,7 +185,7 @@
               <span class="label">Labs</span>
               <p class="service-card__lead">Health is connected.</p>
               <p class="service-card__more">Discover Some Of The Signals Your Body May Be Sending. What your biomarkers may be telling you.</p>
-              <div class="service-card__cta"><a class="btn btn--secondary" href="#">Discover Your Health Path <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+              <div class="service-card__cta"><a class="btn btn--secondary" href="#joinForm">Discover Your Health Path <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
             </div>
           </article>
         </div>
@@ -246,7 +248,7 @@
         <div class="section-head section-head--center reveal">
           <h2>Personalized Care, Built Around Your Goals</h2>
           <p>Whether you're looking to lose weight, better understand your health, or improve your overall wellness, Balance Health is being built to provide personalized support every step of the way.</p>
-          <a class="btn btn--primary" href="#">Start Assessment <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn--primary" href="#joinForm">Start Assessment <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
       </div>
       <div class="rail reveal" data-rail>
@@ -427,7 +429,8 @@
           <p class="hipaa"><svg aria-hidden="true"><use href="#i-shield"/></svg><span>Your information is protected under HIPAA. We never sell or share your health data.</span></p>
         </div>
         <div class="form-card reveal">
-          <form id="earlyAccessForm" novalidate>
+          <!-- Backend: set data-endpoint to the API URL. js/home.js POSTs the answers there as JSON (contract in README). Empty = static demo, nothing is sent. -->
+          <form id="earlyAccessForm" method="post" data-endpoint="" novalidate>
             <h3>Join Early Access</h3>
             <span class="label">We’re Here To Help</span>
             <div class="form-grid form-grid--2">
@@ -440,7 +443,8 @@
               <div class="field"><label for="f-message">Message</label><textarea id="f-message" name="message"></textarea></div>
               <label class="consent"><input type="checkbox" name="smsNonMarketing"><span>I consent to receive non-marketing text messages from Balance Health Group LLC about responses to support requests, ticket updates, appointment coordination, or follow-up communications related to an existing inquiry. Message frequency may vary. Message &amp; data rates may apply. Text HELP for assistance. Reply STOP to opt out.</span></label>
               <label class="consent"><input type="checkbox" name="smsMarketing"><span>I consent to receive marketing text messages about special offers, discounts, event promotions, and service announcements from Balance Health Group LLC at the phone number provided. Message frequency may vary. Message &amp; data rates may apply. Text HELP for assistance. Reply STOP to opt out.</span></label>
-              <p class="form-legal">By submitting this form, you acknowledge that you have reviewed our <a href="#">Privacy Policy</a> and <a href="#">Terms &amp; Conditions</a>.</p>
+              <p class="form-legal">By submitting this form, you acknowledge that you have reviewed our <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms-conditions.html">Terms &amp; Conditions</a>.</p>
+              <p class="form-error" id="earlyAccessError" role="alert" hidden>We couldn’t send your request. Please try again.</p>
               <button class="btn btn--primary" type="submit">Join Early Access <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
             </div>
           </form>
@@ -496,6 +500,6 @@
     </div>
   </footer>
 
-  <script src="js/home.js?v=1009" defer></script>
+  <script src="js/home.js?v=1012" defer></script>
 </body>
 </html>

@@ -19,22 +19,37 @@ Static site on GitHub Pages. Pushing to `main` deploys to
   so fix things in the generator and rerun it rather than editing the pages. Styles: `css/legal.css`.
 - **Logo:** `assets/brand/*.svg`, converted path-for-path from the master `.ai` artwork. Don't retype the
   wordmark.
-- **Cache busting:** every CSS/JS/asset URL carries `?v=N`. N only goes up. Current max: `1011`.
+- **Cache busting:** every CSS/JS/asset URL carries `?v=N`. N only goes up. Current max: `1012`.
 - **Preview:** `python3 -m http.server 8792` from the repo root, then open <http://localhost:8792/>.
+
+## Early-access form (backend contract)
+
+Every CTA button on the homepage (and the header CTA on the legal pages) anchors to the form at `#joinForm`.
+To go live, set the form's `data-endpoint` in `index.html` (`<form id="earlyAccessForm" … data-endpoint="">`)
+to the API URL. `js/home.js` then sends:
+
+- `POST <endpoint>` with `Content-Type: application/json`, no cookies (`credentials: 'omit'`), 15 s timeout.
+- Body: `{ form: "early-access", firstName, lastName, email, phone, message, smsNonMarketing: bool,
+  smsMarketing: bool, page, submittedAt }`. `page` is the URL without its query string; `submittedAt` is ISO 8601.
+  First name, last name and a valid email are validated client-side before anything is sent.
+- Any 2xx response shows the thank-you state. Anything else (or a network error/timeout) shows the error line and
+  keeps the answers in the form so the person can retry.
+- A cross-origin endpoint must answer the CORS preflight (`OPTIONS`, allow `POST` and `Content-Type`).
+- With `data-endpoint` empty (the static demo) nothing is sent. Nothing is stored in the browser.
 
 ## Pages
 
 | Page | Folder / file | Stack | Notes | `?v=` |
 |---|---|---|---|---|
-| Homepage (demo) | `index.html` | Vanilla | Copy is from the approved homepage with the brand name changed. Hero: background member video through the logo's "Λ" (Higgsfield). Design pass after gsk.com, copy unchanged: "Why It's Different" as staggered photo cards (gsk.com "card-slides"), "Personalized Care" as staggered photo cards, "How It Works" as big-number cards over a cell render, back-to-top circle. The "Why It's Different" and "Personalized Care" photos are framed by the hero's "Λ" window (per-card SVG mask reusing `#bh-lambda` and `#bh-lambda-fade`; the Λ is placed per photo on its subject). Card rails in `js/home.js`. `noindex`. Flags below. | 1011 |
+| Homepage (demo) | `index.html` | Vanilla | Copy is from the approved homepage with the brand name changed. Hero: background member video through the logo's "Λ" (Higgsfield). Design pass after gsk.com, copy unchanged: "Why It's Different" as staggered photo cards (gsk.com "card-slides"), "Personalized Care" as staggered photo cards, "How It Works" as big-number cards over a cell render, back-to-top circle. The "Why It's Different" and "Personalized Care" photos are framed by the hero's "Λ" window (per-card SVG mask reusing `#bh-lambda` and `#bh-lambda-fade`; the Λ is placed per photo on its subject). Card rails in `js/home.js`. `noindex`. Flags below. | 1012 |
 | Page index | `page-index.html` | Static | Client-facing list of pages. | 1000 |
-| Privacy Policy | `privacy-policy.html` | Static, generated | Verbatim from the live chimehealth.com page, brand swapped. Built by `uploads/legal-ref/build.py`. `noindex`. | 1002 |
-| HIPAA Notice of Privacy Practices | `hipaa-notice.html` | Static, generated | Verbatim from the live chimehealth.com page, brand swapped. Built by `uploads/legal-ref/build.py`. `noindex`. | 1002 |
-| Consumer Health Data Privacy Policy | `consumer-health-data-privacy-policy.html` | Static, generated | Verbatim from the live chimehealth.com page, brand swapped. Built by `uploads/legal-ref/build.py`. `noindex`. | 1002 |
-| Telehealth Consent | `telehealth-consent.html` | Static, generated | Verbatim from the live chimehealth.com page, brand swapped. Built by `uploads/legal-ref/build.py`. `noindex`. | 1002 |
-| Shipping Policy | `shipping-policy.html` | Static, generated | Verbatim from the live chimehealth.com page, brand swapped. Built by `uploads/legal-ref/build.py`. `noindex`. | 1002 |
-| Return & Refund Policy | `return-refund-policy.html` | Static, generated | Verbatim from the live chimehealth.com page, brand swapped. Built by `uploads/legal-ref/build.py`. `noindex`. | 1002 |
-| Terms & Conditions | `terms-conditions.html` | Static, generated | Verbatim from the live chimehealth.com page, brand swapped. Built by `uploads/legal-ref/build.py`. `noindex`. | 1002 |
+| Privacy Policy | `privacy-policy.html` | Static, generated | Verbatim from the live chimehealth.com page, brand swapped. Built by `uploads/legal-ref/build.py`. `noindex`. | 1012 |
+| HIPAA Notice of Privacy Practices | `hipaa-notice.html` | Static, generated | Verbatim from the live chimehealth.com page, brand swapped. Built by `uploads/legal-ref/build.py`. `noindex`. | 1012 |
+| Consumer Health Data Privacy Policy | `consumer-health-data-privacy-policy.html` | Static, generated | Verbatim from the live chimehealth.com page, brand swapped. Built by `uploads/legal-ref/build.py`. `noindex`. | 1012 |
+| Telehealth Consent | `telehealth-consent.html` | Static, generated | Verbatim from the live chimehealth.com page, brand swapped. Built by `uploads/legal-ref/build.py`. `noindex`. | 1012 |
+| Shipping Policy | `shipping-policy.html` | Static, generated | Verbatim from the live chimehealth.com page, brand swapped. Built by `uploads/legal-ref/build.py`. `noindex`. | 1012 |
+| Return & Refund Policy | `return-refund-policy.html` | Static, generated | Verbatim from the live chimehealth.com page, brand swapped. Built by `uploads/legal-ref/build.py`. `noindex`. | 1012 |
+| Terms & Conditions | `terms-conditions.html` | Static, generated | Verbatim from the live chimehealth.com page, brand swapped. Built by `uploads/legal-ref/build.py`. `noindex`. | 1012 |
 
 ### Homepage flags (stand-ins for the client to confirm)
 
@@ -50,8 +65,8 @@ Static site on GitHub Pages. Pushing to `main` deploys to
    "Chime Health" → "Balance Health" (including "Balance Health Group LLC"), and the emails and domain →
    `privacy@ / hello@ / compliance@XXXXXXXX.com`. The client's counsel needs to sign them off for the new brand.
 9. The cookie banner is left out because the demo sets no cookies and has no analytics.
-10. The early-access form has no backend. Answers are kept in `sessionStorage` and passed to
-    `window.balanceSubmitEarlyAccess(payload)`.
+10. The early-access form is backend-ready but has no endpoint yet (see "Early-access form" below). Its error line
+    "We couldn’t send your request. Please try again." is new UI copy for the client to confirm.
 11. The hero video (a member at home) is an AI-generated (Higgsfield) fictional person, not a real member.
     The client needs to approve it.
 12. The photos on the "Why It's Different" cards (`images/why-*.webp`), the "Personalized Care" cards (`images/story-*.webp`) and the cell render behind "How It Works"
