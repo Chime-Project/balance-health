@@ -57,8 +57,8 @@ to the API URL. `js/home.js` then sends:
    old brand name.
 2. The SMS consent names "Balance Health Group LLC". The legal entity needs confirming.
 3. The contact email is `hello@balanceglp.com` (confirmed 9 Oct 2026).
-4. Every Start Assessment / Discover button anchors to the early-access form (`#joinForm`) until the assessment URL is
-   confirmed.
+4. Every button reads "Contact Us" (was Start Assessment / Discover… / Join Early Access). The CTAs anchor to the
+   early-access form (`#joinForm`) until the assessment URL is confirmed.
 5. The LegitScript seal is a placeholder.
 6. The service jurisdictions list came over from the source site and needs confirming.
 7. The "Launching soon" copy needs confirming.
